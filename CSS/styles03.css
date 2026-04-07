@@ -1,0 +1,41 @@
+.caja{
+    background-color: brown;
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    
+}
+.caja_hija{
+    height: 150px;
+    width: 150px;
+}
+.black{
+    background-color: black;
+}
+.blue{
+    background-color: blue;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green;
+}
+.orange{
+    background-color: orange;
+}
+.purple{
+    background-color: purple;
+}
+@media (min-width: 600px) {
+   .caja{
+    width: 700px;
+   }
+   .orange{
+    background-color: blanchedalmond;
+   }
+}
