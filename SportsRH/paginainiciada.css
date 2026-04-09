@@ -1,102 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #DAD7CD;
-    margin: 0;
-    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
 }
 
-.cabeza {
+.navbar {
     background-color: #588157;
-    padding: 20px 30px;
+    padding: 10px 20px;
 }
 
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo-titulo {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.logo-titulo h1 {
-    margin: 0;
-    color: white;
-}
-
-nav a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: white;
+.navbar-brand {
+    color: white !important;
     font-weight: bold;
+    font-size: 20px;
 }
 
-nav a:hover {
+.navbar-brand img {
+    margin-right: 8px;
+}
+
+.nav-link {
+    color: white !important;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.nav-link:hover {
     text-decoration: underline;
 }
 
-main {
-    padding: 20px;
+.titulo {
+    text-align: center;
+    color: #4b946f;
+    margin-top: 20px;
+}
+
+.formulario {
+    text-align: center;
+    color: #4b946f;
 }
 
 footer {
+    text-align: center;
+    padding: 15px;
     background-color: #588157;
     color: white;
-    padding: 10px;
-    text-align: left;
-}
-
-@media(max-width:576px) {
-    body {
-        flex-direction: column;
-        background-color: white;
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .cabeza {
-        background-color: #344E41;
-        padding: 5px 15px;
-    }
-
-    header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .logo-titulo {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .logo-titulo h1 {
-        margin: 0;
-        color: white;
-    }
-
-    nav a {
-        margin-left: 10px;
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-    }
-
-    nav a:hover {
-        text-decoration: underline;
-    }
-
-    main {
-        padding: 20px;
-    }
-
-    footer {
-        background-color: #344E41;
-        color: white;
-        padding: 5px;
-        text-align: left;
-    }
 }

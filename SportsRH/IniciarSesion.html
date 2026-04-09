@@ -1,23 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./paginainiciada.css">
+
     <title>INICIAR SESION</title>
 </head>
 
 <body>
-    <div>
-        <a href="/SportsRH/SportsRH.html">--Inicio--</a>
-        <a href="/SportsRH/Acerca de nosotros.html">--Acerca de nosotros--</a>
+
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+
+                <a class="navbar-brand d-flex align-items-center">
+                    <img src="Logo del proyecto en grande.png" alt="logo" width="60">
+                    <span class="ms-2">SportsRH</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarContenido">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navbarContenido">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/SportsRH/Acerca de nosotros.html">Acerca de nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/SportsRH/SportsRH.html">Inicio</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="titulo">
+        <h1>Iniciar sesión</h1>
     </div>
-    <div style="text-align: center;">
-        <H1>Iniciar sesión</H1>
-    </div>
-    <form>
+
+    <form> 
         <fieldset>
-            <div style="text-align: center;">
+            <div class="formulario">
                 <label for="nom">Cargo:</label>
                 <select name="nom" id="nom">
                     <option>Seleccione una opción</option>
@@ -25,34 +56,33 @@
                     <option>Profesor</option>
                     <option>Administrador</option>
                 </select>
+
                 <br><br>
+
                 <label for="correo">Correo IE:</label>
                 <input type="email" placeholder="Email..." name="correo" id="correo">
+
                 <br><br>
+
                 <label for="con">Contraseña:</label>
                 <input type="password" placeholder="Contraseña..." name="con" id="con">
+
                 <br><br>
-                <input type="submit" value="Iniciar sesion">
-                <button>Ovidé mi contraseña..</button>
+
+                <button type="button" class="btn btn-success">Iniciar Sesion</button>
+                <button type="button" class="btn btn-danger">Olvide mi contraseña</button>
             </div>
         </fieldset>
+
+        <br>
 
         <footer>
             <h6>© SPORT RH 2026</h6>
         </footer>
-        <style>
-            footer {
-                text-align: center;
-                padding: 15px;
-                background: #f2f2f2;
-            }
-
-            footer a {
-                text-decoration: none;
-                margin: 0 5px;
-            }
-        </style>
     </form>
-</body>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
+
+</body>
 </html>
