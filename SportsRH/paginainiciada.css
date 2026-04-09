@@ -1,12 +1,18 @@
-body {
-    background-color: #DAD7CD;
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
     font-family: Arial, sans-serif;
 }
 
 .cabeza {
     background-color: #588157;
-    padding: 20px 30px;
+    padding: 10px 20px;
 }
 
 header {
@@ -18,19 +24,23 @@ header {
 .logo-titulo {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+}
+
+.logo-titulo img {
+    width: 60px;
 }
 
 .logo-titulo h1 {
-    margin: 0;
     color: white;
+    font-size: 22px;
 }
 
 nav a {
-    margin-left: 15px;
+    margin-left: 20px;
     text-decoration: none;
     color: white;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 nav a:hover {
@@ -44,6 +54,7 @@ main {
 .bienvenida {
     text-align: center;
     margin-bottom: 30px;
+    color: #4b946f;
 }
 
 .bienvenida h2 {
@@ -66,32 +77,24 @@ main {
     width: 250px;
     height: 150px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 footer {
     background-color: #588157;
     color: white;
     padding: 10px;
-    text-align: left;
+    text-align: center;
 }
 
 @media(max-width:576px) {
 
-    body {
-        background-color: white;
+    .logo-titulo img {
+        width: 50px;
     }
 
-    .cabeza {
-        background-color: #344E41;
-        padding: 10px 15px;
-    }
-
-    .logo-titulo {
-        gap: 5px;
-    }
-
-    nav a {
-        margin-left: 10px;
+    .logo-titulo h1 {
+        font-size: 18px;
     }
 
     .bienvenida h2 {
@@ -111,10 +114,5 @@ footer {
     .img img {
         width: 200px;
         height: 120px;
-    }
-
-    footer {
-        background-color: #344E41;
-        padding: 5px;
     }
 }

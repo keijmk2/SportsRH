@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+}
+
+.navbar {
+    background-color: #588157;
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar-brand img {
+    margin-right: 8px;
+}
+
+.nav-link {
+    color: white !important;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+.titulo {
+    text-align: center;
+    color: #4b946f;
+    margin-top: 20px;
+}
+
+.formulario {
+    text-align: center;
+    color: #4b946f;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #588157;
+    color: white;
+}
