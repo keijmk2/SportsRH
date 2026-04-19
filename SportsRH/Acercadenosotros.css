@@ -7,34 +7,44 @@
 .header {
     background-color: #588157;
     color: white;
-    padding: 15px;
+}
 
+.barra-superior {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 15px;
 }
 
-.logo-titulo {
+.logo-nombre {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.logo-titulo h2 {
+.logo-nombre h2 {
     margin: 0;
 }
 
-.header nav a {
-    color: white;
-    text-decoration: none;
-    margin-left: 15px;
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
 }
 
-.titulo {
-    text-align: center;
-    background-color: #588157;
+.navbar-nav a {
+    text-decoration: none;
     color: white;
-    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.titulo-header {
+    text-align: center;
+    padding: 10px;
+    border-top: 2px solid white;
 }
 
 .seccion-oscura {
@@ -44,9 +54,30 @@
     padding: 20px;
 }
 
+.descripcion {
+    max-width: 600px;
+    margin: 0 auto 20px auto;
+    line-height: 1.5;
+}
+
+.seccion-oscura a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+
 .seccion-oscura img {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.contenedor-personas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
 }
 
 .seccion-clara {
