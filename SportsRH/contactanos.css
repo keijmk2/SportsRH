@@ -57,6 +57,24 @@
     color: white;
     padding: 20px;
     border-radius: 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.info {
+    max-width: 70%;
+}
+
+#keiner img,
+#yarlinson img,
+#martin img,
+#sofia img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 40%;
 }
 
 #keiner h3,
@@ -82,9 +100,9 @@ p a:hover {
 .pie {
     color: white;
     background-color: #588157;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
 @media (max-width: 600px) {
@@ -93,5 +111,15 @@ p a:hover {
     #martin,
     #sofia {
         width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info {
+        max-width: 100%;
+    }
+
+    img {
+        margin-top: 15px;
     }
 }
