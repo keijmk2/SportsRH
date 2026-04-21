@@ -76,10 +76,9 @@ button {
     margin: 10px 5px;
 }
 
-footer {
-    text-align: center;
-    padding: 15px;
+.footer {
     background-color: #588157;
     color: white;
-    margin-top: 50px;
+    text-align: center;
+    padding: 15px;
 }
