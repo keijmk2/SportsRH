@@ -25,9 +25,10 @@ body {
 }
 
 .nav-link {
-    color: white !important;
+    color: white;
     margin-left: 15px;
     font-weight: 500;
+    font-weight: bold;
 }
 
 .nav-link:hover {
@@ -76,9 +77,10 @@ button {
     margin: 10px 5px;
 }
 
-.footer {
+footer {
     background-color: #588157;
     color: white;
+    padding: 10px;
     text-align: center;
-    padding: 15px;
+    margin-top: 40px;
 }

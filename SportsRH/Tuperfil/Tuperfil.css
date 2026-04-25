@@ -15,7 +15,6 @@ header {
     justify-content: space-between;
 }
 
-/* LOGO */
 .logo-titulo {
     display: flex;
     align-items: center;
@@ -31,7 +30,6 @@ header {
     font-size: 22px;
 }
 
-/* NAV CORREGIDO */
 nav {
     display: flex;
     justify-content: flex-end; /* derecha */
@@ -42,14 +40,13 @@ nav {
 nav a {
     text-decoration: none;
     color: white;
-    font-weight: bold; /* negrita */
+    font-weight: bold;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
-/* PERFIL */
 .perfil {
     max-width: 800px;
     margin: 40px auto;
@@ -123,7 +120,6 @@ footer {
     margin-top: 40px;
 }
 
-/* RESPONSIVE */
 @media(max-width:576px) {
 
     header {
