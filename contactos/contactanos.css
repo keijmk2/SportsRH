@@ -1,114 +1,125 @@
-#cuerpazo{
+#cuerpazo {
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* ENCABEZADO */
-.tutuli{
+.tutuli {
     background-color: #588157;
     padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* LOGO Y TITULO */
-.titu{
+.titu {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.titu h1{
+.titu h1 {
     color: white;
     margin: 0;
 }
 
-/* MENU */
-nav a{
+.menu a {
     color: white;
     text-decoration: none;
     margin-left: 15px;
     font-weight: bold;
 }
 
-nav a:visited{
-    color: white;
-}
-
-nav a:hover{
+.menu a:hover {
     color: #dad7cd;
 }
 
-/* TITULO PRINCIPAL */
-.titulo{
+.titulo {
     color: #dad7cd;
     text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 30px 0;
 }
 
-/* CAJAS DE CONTACTOS */
+.contenedor-contactos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
 #keiner,
 #yarlinson,
 #martin,
-#sofia{
-    width: 40%;
+#sofia {
+    width: 45%;
     background-color: #588157;
     color: white;
     padding: 20px;
     border-radius: 10px;
-    margin: 20px;
-    display: inline-block;
-    vertical-align: top;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* PARA QUE QUEDEN 2 IZQUIERDA Y 2 DERECHA */
-#keiner,
-#martin{
-    margin-left: 5%;
+.info {
+    max-width: 70%;
 }
 
-#yarlinson,
-#sofia{
-    margin-right: 5%;
+#keiner img,
+#yarlinson img,
+#martin img,
+#sofia img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 40%;
 }
 
-/* TITULOS DE CADA PERFIL */
 #keiner h3,
 #yarlinson h3,
 #martin h3,
-#sofia h3{
+#sofia h3 {
     text-align: center;
-    margin-bottom: 15px;
 }
 
-/* TEXTO */
-p{
+p {
     color: #dad7cd;
-    text-align: left;
 }
 
-/* LINKS DE CONTACTOS */
-p a{
+p a {
     color: white;
     text-decoration: none;
 }
 
-p a:hover{
+p a:hover {
     color: #dad7cd;
 }
 
-/* ICONOS */
-svg{
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-/* PIE DE PAGINA */
-.pie{
+.pie {
     color: white;
     background-color: #588157;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
+}
+
+@media (max-width: 600px) {
+    #keiner,
+    #yarlinson,
+    #martin,
+    #sofia {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .info {
+        max-width: 100%;
+    }
+
+    img {
+        margin-top: 15px;
+    }
 }
