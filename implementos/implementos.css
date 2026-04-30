@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a1a;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+/* CABECERA */
+header {
+    background-color: #588157;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-titulo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.logo-titulo h1 {
+    color: white;
+    font-size: 28px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #d8f3dc;
+    text-decoration: underline;
+}
+
+/* TITULO */
+h2 {
+    color: #4b946f;
+    margin: 30px 0 20px 0;
+    font-size: 32px;
+}
+
+/* MENU INTERNO */
+.menu-implementos {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menu-implementos a {
+    text-decoration: none;
+    color: white;
+    background-color: #588157;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu-implementos a:hover {
+    background-color: #4b946f;
+}
+
+/* SECCIONES */
+#Balones,
+#Aros,
+#Colchonetas,
+#Bastones {
+    text-align: center;
+    margin: 40px auto;
+    padding: 20px;
+    width: 90%;
+    background-color: #2b2b2b;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* IMAGENES */
+#Balones img,
+#Aros img,
+#Colchonetas img,
+#Bastones img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    margin: 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+#Balones img:hover,
+#Aros img:hover,
+#Colchonetas img:hover,
+#Bastones img:hover {
+    transform: scale(1.05);
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #588157;
+    color: white;
+    margin-top: 40px;
+}
