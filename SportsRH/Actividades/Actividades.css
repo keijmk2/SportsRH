@@ -1,0 +1,139 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    background-color: #1a1a1a;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+/* HEADER */
+header {
+    background-color: #588157;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
+
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-titulo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
+
+.logo-titulo h1 {
+    color: white;
+    font-size: 22px;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* TITULO */
+h2 {
+    color: #4b946f;
+    margin: 30px 0 20px 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* =========================
+   CARRUSEL CENTRADO
+========================= */
+
+#carouselEjercicios {
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* =========================
+   IMAGEN CUADRADA + HOVER
+========================= */
+
+.img-carousel {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+/* EFECTO AL PASAR MOUSE */
+.hover-img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-img:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* CONTENEDOR */
+.carousel-inner {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* TEXTO CARRUSEL */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+/* FLECHAS */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(1);
+}
+
+/* INDICADORES */
+.carousel-indicators button {
+    background-color: white;
+}
+
+/* MODAL */
+.modal-content {
+    background-color: #222;
+    color: white;
+    border-radius: 12px;
+}
+
+.modal-content h4 {
+    color: #8fca9d;
+}
+
+/* Footer separado*/
+footer {
+    background-color: #588157;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 60px;
+}
