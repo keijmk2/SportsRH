@@ -1,163 +1,300 @@
 * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        body {
-            background-color: #1a1a1a;
-            font-family: Arial, Helvetica, sans-serif;
-            color: white;
-        }
+body {
+    background-color: #1a1a1a;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
 
-        /* CABECERA */
-        header {
-            background-color: #588157;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-        }
+/* CABECERA */
+header {
+    background-color: #588157;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+}
 
-        .logo-titulo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
-        .logo-titulo img {
-            width: 60px;
-            height: 60px;
-            border-radius: 10px;
-        }
+.logo-titulo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+}
 
-        .logo-titulo h1 {
-            color: white;
-            font-size: 28px;
-        }
+.logo-titulo h1 {
+    color: white;
+    font-size: 28px;
+}
 
-        nav a {
-            text-decoration: none;
-            color: white;
-            margin-left: 20px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        nav a:hover {
-            color: #d8f3dc;
-            text-decoration: underline;
-        }
+nav a:hover {
+    color: #d8f3dc;
+}
 
-        /* TITULO */
-        h2 {
-            color: #4b946f;
-            margin: 30px 0 20px 0;
-            font-size: 32px;
-            text-align: center;
-        }
+/* TITULO */
+h2 {
+    text-align: center;
+    margin: 30px 0;
+    color: #4b946f;
+    font-size: 32px;
+}
 
-        /* MENU INTERNO */
-        .menu-implementos {
-            text-align: center;
-            margin-bottom: 30px;
-        }
+/* MENU */
+.menu-implementos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
 
-        .menu-implementos a {
-            text-decoration: none;
-            color: white;
-            background-color: #588157;
-            padding: 10px 20px;
-            margin: 0 10px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+.menu-implementos a {
+    background-color: #588157;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-        .menu-implementos a:hover {
-            background-color: #4b946f;
-        }
+.menu-implementos a:hover {
+    background-color: #4b946f;
+}
 
-        /* SECCIONES DE FOTOS */
-        #Balones,
-        #Aros,
-        #Colchonetas,
-        #Bastones {
-            width: 92%;
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 25px;
-            background: linear-gradient(180deg, #2b2b2b, #252525);
-            border-radius: 18px;
-            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+/* SECCIONES */
+.seccion-implementos {
+    width: 92%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 25px;
 
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-        }
+    background: linear-gradient(180deg, #2b2b2b, #252525);
 
-        /* IMAGENES */
-        #Balones img,
-        #Aros img,
-        #Colchonetas img,
-        #Bastones img {
-            width: 260px;
-            height: 190px;
-            object-fit: cover;
-            border-radius: 16px;
-            border: 2px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
 
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease,
-                filter 0.3s ease;
-        }
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 
-        /* EFECTO HOVER */
-        #Balones img:hover,
-        #Aros img:hover,
-        #Colchonetas img:hover,
-        #Bastones img:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
-            filter: brightness(1.05);
-        }
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #588157;
-            color: white;
-            margin-top: 40px;
-        }
+/* IMPLEMENTOS */
+.implemento {
+    text-align: center;
+}
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
+.implemento img {
+    width: 260px;
+    height: 190px;
 
-            #Balones img,
-            #Aros img,
-            #Colchonetas img,
-            #Bastones img {
-                width: 100%;
-                max-width: 320px;
-                height: 200px;
-            }
+    object-fit: cover;
 
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+    border-radius: 16px;
 
-            nav {
-                text-align: center;
-            }
+    transition: 0.3s;
 
-            nav a {
-                display: inline-block;
-                margin: 5px;
-            }
-        }
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+.implemento img:hover {
+    transform: scale(1.03);
+}
+
+.info {
+    margin-top: 10px;
+}
+
+/* BOTON + */
+.boton-mas {
+    position: fixed;
+
+    right: 30px;
+    bottom: 30px;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background-color: #588157;
+
+    color: white;
+
+    font-size: 40px;
+
+    cursor: pointer;
+
+    z-index: 3000;
+
+    transition: 0.3s;
+}
+
+.boton-mas:hover {
+    background-color: #4b946f;
+    transform: scale(1.1);
+}
+
+/* MENU DEL + */
+.menu-mas {
+    position: fixed;
+
+    right: 30px;
+    bottom: 115px;
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    z-index: 3000;
+}
+
+.menu-mas button {
+    background-color: #2b2b2b;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 12px;
+
+    padding: 14px;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+}
+
+.menu-mas button:hover {
+    background-color: #588157;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 4000;
+}
+
+/* FORMULARIO */
+.formulario {
+    background-color: #2b2b2b;
+
+    width: 90%;
+    max-width: 400px;
+
+    padding: 30px;
+
+    border-radius: 20px;
+}
+
+.formulario h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4b946f;
+}
+
+.formulario input,
+.formulario select {
+    width: 100%;
+
+    padding: 12px;
+
+    margin-bottom: 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+.formulario button {
+    width: 100%;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background-color: #588157;
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.formulario button:hover {
+    background-color: #4b946f;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #588157;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .implemento img {
+        width: 100%;
+        max-width: 320px;
+        height: 200px;
+    }
+
+}
