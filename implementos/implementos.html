@@ -7,7 +7,6 @@
     <title>SportRH</title>
 
     <link rel="icon" type="image/png" href="/Imagenes/Logo del proyecto en circulo.png">
-
     <link rel="stylesheet" href="./implementos.css">
 </head>
 
@@ -37,54 +36,76 @@
 
     <!-- MENU -->
     <div class="menu-implementos">
-
         <a href="#Balones">Balones</a>
-
         <a href="#Aros">Aros</a>
-
         <a href="#Colchonetas">Colchonetas</a>
-
         <a href="#Bastones">Bastones</a>
-
     </div>
 
     <!-- BALONES -->
     <div id="Balones" class="seccion-implementos">
 
-        <div class="implemento">
+        <div class="implemento" onclick="voltearImplemento(this)">
+            <div class="tarjeta-implemento">
+                <div class="cara frente">
+                    <img src="/Imagenes/Futbol.jpg" alt="Futbol">
+                    <div class="info">
+                        <h3>Balón de Fútbol</h3>
+                        <p>Cantidad: 10</p>
+                        <p>Estado: Bueno</p>
+                    </div>
+                </div>
 
-            <img src="/Imagenes/Futbol.jpg" alt="Futbol">
-
-            <div class="info">
-                <h3>Balón de Fútbol</h3>
-                <p>Cantidad: 10</p>
-                <p>Estado: Bueno</p>
+                <div class="cara trasera">
+                    <h3>Balón de Fútbol</h3>
+                    <p>
+                        Es un implemento deportivo usado para entrenamientos y partidos.
+                        Sirve para mejorar el control, pase y precisión.
+                    </p>
+                </div>
             </div>
-
         </div>
 
-        <div class="implemento">
+        <div class="implemento" onclick="voltearImplemento(this)">
+            <div class="tarjeta-implemento">
+                <div class="cara frente">
+                    <img src="/Imagenes/basquetbol.jpg" alt="Basquetbol">
+                    <div class="info">
+                        <h3>Balón de Basquetbol</h3>
+                        <p>Cantidad: 8</p>
+                        <p>Estado: Bueno</p>
+                    </div>
+                </div>
 
-            <img src="/Imagenes/basquetbol.jpg" alt="Basquetbol">
-
-            <div class="info">
-                <h3>Balón de Basquetbol</h3>
-                <p>Cantidad: 8</p>
-                <p>Estado: Bueno</p>
+                <div class="cara trasera">
+                    <h3>Balón de Basquetbol</h3>
+                    <p>
+                        Se utiliza en juegos y prácticas de baloncesto.
+                        Ayuda en coordinación, bote y lanzamientos.
+                    </p>
+                </div>
             </div>
-
         </div>
 
-        <div class="implemento">
+        <div class="implemento" onclick="voltearImplemento(this)">
+            <div class="tarjeta-implemento">
+                <div class="cara frente">
+                    <img src="/Imagenes/Voleibol.jpg" alt="Voleibol">
+                    <div class="info">
+                        <h3>Balón de Voleibol</h3>
+                        <p>Cantidad: 6</p>
+                        <p>Estado: Regular</p>
+                    </div>
+                </div>
 
-            <img src="/Imagenes/Voleibol.jpg" alt="Voleibol">
-
-            <div class="info">
-                <h3>Balón de Voleibol</h3>
-                <p>Cantidad: 6</p>
-                <p>Estado: Regular</p>
+                <div class="cara trasera">
+                    <h3>Balón de Voleibol</h3>
+                    <p>
+                        Es ideal para practicar voleibol en equipos.
+                        Se usa para saques, pases y remates.
+                    </p>
+                </div>
             </div>
-
         </div>
 
     </div>
@@ -92,16 +113,25 @@
     <!-- AROS -->
     <div id="Aros" class="seccion-implementos">
 
-        <div class="implemento">
+        <div class="implemento" onclick="voltearImplemento(this)">
+            <div class="tarjeta-implemento">
+                <div class="cara frente">
+                    <img src="/Imagenes/aro N.jpg" alt="Aros">
+                    <div class="info">
+                        <h3>Aros Negros</h3>
+                        <p>Cantidad: 12</p>
+                        <p>Estado: Bueno</p>
+                    </div>
+                </div>
 
-            <img src="/Imagenes/aro N.jpg" alt="Aros">
-
-            <div class="info">
-                <h3>Aros Negros</h3>
-                <p>Cantidad: 12</p>
-                <p>Estado: Bueno</p>
+                <div class="cara trasera">
+                    <h3>Aros Negros</h3>
+                    <p>
+                        Se usan en ejercicios de coordinación, agilidad y motricidad.
+                        Son útiles en actividades físicas y recreativas.
+                    </p>
+                </div>
             </div>
-
         </div>
 
     </div>
@@ -109,16 +139,25 @@
     <!-- COLCHONETAS -->
     <div id="Colchonetas" class="seccion-implementos">
 
-        <div class="implemento">
+        <div class="implemento" onclick="voltearImplemento(this)">
+            <div class="tarjeta-implemento">
+                <div class="cara frente">
+                    <img src="/Imagenes/colchoneta.jpg" alt="Colchoneta">
+                    <div class="info">
+                        <h3>Colchonetas</h3>
+                        <p>Cantidad: 5</p>
+                        <p>Estado: Bueno</p>
+                    </div>
+                </div>
 
-            <img src="/Imagenes/colchoneta.jpg" alt="Colchoneta">
-
-            <div class="info">
-                <h3>Colchonetas</h3>
-                <p>Cantidad: 5</p>
-                <p>Estado: Bueno</p>
+                <div class="cara trasera">
+                    <h3>Colchonetas</h3>
+                    <p>
+                        Sirven para ejercicios de suelo, estiramientos y apoyo corporal.
+                        Aportan comodidad y seguridad en prácticas deportivas.
+                    </p>
+                </div>
             </div>
-
         </div>
 
     </div>
@@ -126,354 +165,241 @@
     <!-- BASTONES -->
     <div id="Bastones" class="seccion-implementos">
 
-        <div class="implemento">
+        <div class="implemento" onclick="voltearImplemento(this)">
+            <div class="tarjeta-implemento">
+                <div class="cara frente">
+                    <img src="/Imagenes/bastones.jpg" alt="Bastones">
+                    <div class="info">
+                        <h3>Bastones</h3>
+                        <p>Cantidad: 9</p>
+                        <p>Estado: Regular</p>
+                    </div>
+                </div>
 
-            <img src="/Imagenes/bastones.jpg" alt="Bastones">
-
-            <div class="info">
-                <h3>Bastones</h3>
-                <p>Cantidad: 9</p>
-                <p>Estado: Regular</p>
+                <div class="cara trasera">
+                    <h3>Bastones</h3>
+                    <p>
+                        Se usan en ejercicios de coordinación, movilidad y postura.
+                        Son comunes en rutinas físicas y de entrenamiento.
+                    </p>
+                </div>
             </div>
-
         </div>
 
     </div>
 
     <!-- BOTON + -->
-    <button class="boton-mas" onclick="abrirMenu()">
-        +
-    </button>
+    <button class="boton-mas" onclick="abrirMenu()">+</button>
 
     <!-- MENU DEL + -->
     <div class="menu-mas" id="menuMas">
-
-        <button onclick="abrirFormularioImplemento()">
-            Añadir implemento
-        </button>
-
-        <button onclick="abrirFormularioEditar()">
-            Editar implemento
-        </button>
-
-        <button onclick="borrarImplemento()">
-            Borrar implemento
-        </button>
-
-        <button onclick="crearSeccionImplemento()">
-            Añadir sección de implemento
-        </button>
-
-        <button onclick="borrarSeccionImplemento()">
-            Borrar sección de implemento
-        </button>
-
+        <button onclick="abrirFormularioImplemento()">Añadir implemento</button>
+        <button onclick="abrirFormularioEditar()">Editar implemento</button>
+        <button onclick="borrarImplemento()">Borrar implemento</button>
+        <button onclick="crearSeccionImplemento()">Añadir sección de implemento</button>
+        <button onclick="borrarSeccionImplemento()">Borrar sección de implemento</button>
     </div>
 
     <!-- MODAL AGREGAR -->
     <div class="modal" id="modalImplemento">
-
         <div class="formulario">
-
             <h3>Añadir implemento</h3>
 
-            <input type="text"
-                id="nombreImplemento"
-                placeholder="Nombre">
-
-            <input type="text"
-                id="imagenImplemento"
-                placeholder="Ruta imagen">
-
-            <input type="number"
-                id="cantidadImplemento"
-                placeholder="Cantidad">
+            <input type="text" id="nombreImplemento" placeholder="Nombre">
+            <input type="text" id="imagenImplemento" placeholder="Ruta imagen">
+            <input type="number" id="cantidadImplemento" placeholder="Cantidad">
 
             <select id="estadoImplemento">
-
                 <option>Bueno</option>
                 <option>Regular</option>
                 <option>Malo</option>
-
             </select>
 
-            <select id="categoriaImplemento">
+            <textarea id="explicacionImplemento" placeholder="Explicación" rows="4"></textarea>
 
+            <select id="categoriaImplemento">
                 <option value="Balones">Balones</option>
                 <option value="Aros">Aros</option>
                 <option value="Colchonetas">Colchonetas</option>
                 <option value="Bastones">Bastones</option>
-
             </select>
 
-            <button onclick="agregarImplemento()">
-                Agregar
-            </button>
-
+            <button onclick="agregarImplemento()">Agregar</button>
         </div>
-
     </div>
 
     <!-- MODAL EDITAR -->
     <div class="modal" id="modalEditar">
-
         <div class="formulario">
-
             <h3>Editar implemento</h3>
 
-            <input type="text"
-                id="nombreEditar"
-                placeholder="Nombre del implemento">
-
-            <input type="number"
-                id="cantidadEditar"
-                placeholder="Nueva cantidad">
+            <input type="text" id="nombreEditar" placeholder="Nombre del implemento">
+            <input type="number" id="cantidadEditar" placeholder="Nueva cantidad">
 
             <select id="estadoEditar">
-
                 <option>Bueno</option>
                 <option>Regular</option>
                 <option>Malo</option>
-
             </select>
 
-            <button onclick="editarImplemento()">
-                Guardar cambios
-            </button>
-
+            <button onclick="editarImplemento()">Guardar cambios</button>
         </div>
-
     </div>
 
     <!-- FOOTER -->
     <footer>
-
         <h6>© SPORT RH 2026</h6>
-
         <h6>
             Cra. 50B #97a-30,
             Medellín,
             Antioquia
         </h6>
-
     </footer>
 
     <!-- JAVASCRIPT -->
     <script>
-
         const menuMas = document.getElementById("menuMas");
-
-        const modal =
-            document.getElementById("modalImplemento");
-
-        const modalEditar =
-            document.getElementById("modalEditar");
+        const modal = document.getElementById("modalImplemento");
+        const modalEditar = document.getElementById("modalEditar");
 
         function abrirMenu() {
-
             if (menuMas.style.display == "flex") {
-
                 menuMas.style.display = "none";
-
             } else {
-
                 menuMas.style.display = "flex";
-
             }
-
         }
 
         function abrirFormularioImplemento() {
-
             modal.style.display = "flex";
-
             menuMas.style.display = "none";
-
         }
 
         function abrirFormularioEditar() {
-
             modalEditar.style.display = "flex";
-
             menuMas.style.display = "none";
-
         }
 
         window.onclick = function (e) {
-
             if (e.target == modal) {
-
                 modal.style.display = "none";
-
             }
 
             if (e.target == modalEditar) {
-
                 modalEditar.style.display = "none";
-
             }
+        }
 
+        function voltearImplemento(elemento) {
+            const tarjeta = elemento.querySelector(".tarjeta-implemento");
+            tarjeta.classList.toggle("girado");
         }
 
         function agregarImplemento() {
-
-            let nombre =
-                document.getElementById("nombreImplemento").value;
-
-            let imagen =
-                document.getElementById("imagenImplemento").value;
-
-            let cantidad =
-                document.getElementById("cantidadImplemento").value;
-
-            let estado =
-                document.getElementById("estadoImplemento").value;
-
-            let categoria =
-                document.getElementById("categoriaImplemento").value;
+            let nombre = document.getElementById("nombreImplemento").value;
+            let imagen = document.getElementById("imagenImplemento").value;
+            let cantidad = document.getElementById("cantidadImplemento").value;
+            let estado = document.getElementById("estadoImplemento").value;
+            let categoria = document.getElementById("categoriaImplemento").value;
+            let explicacion = document.getElementById("explicacionImplemento").value;
 
             if (
                 nombre == "" ||
                 imagen == "" ||
-                cantidad == ""
+                cantidad == "" ||
+                explicacion == ""
             ) {
-
                 alert("Completa todos los campos");
-
                 return;
-
             }
 
-            let contenedor =
-                document.getElementById(categoria);
+            let contenedor = document.getElementById(categoria);
 
-            let nuevo =
-                document.createElement("div");
-
+            let nuevo = document.createElement("div");
             nuevo.classList.add("implemento");
+            nuevo.setAttribute("onclick", "voltearImplemento(this)");
 
             nuevo.innerHTML = `
+                <div class="tarjeta-implemento">
+                    <div class="cara frente">
+                        <img src="${imagen}" alt="${nombre}">
+                        <div class="info">
+                            <h3>${nombre}</h3>
+                            <p>Cantidad: ${cantidad}</p>
+                            <p>Estado: ${estado}</p>
+                        </div>
+                    </div>
 
-                <img src="${imagen}" alt="${nombre}">
-
-                <div class="info">
-
-                    <h3>${nombre}</h3>
-
-                    <p>Cantidad: ${cantidad}</p>
-
-                    <p>Estado: ${estado}</p>
-
+                    <div class="cara trasera">
+                        <h3>${nombre}</h3>
+                        <p>${explicacion}</p>
+                    </div>
                 </div>
-
             `;
 
             contenedor.appendChild(nuevo);
-
             modal.style.display = "none";
-
         }
 
         function editarImplemento() {
+            let nombre = document.getElementById("nombreEditar").value;
+            let nuevaCantidad = document.getElementById("cantidadEditar").value;
+            let nuevoEstado = document.getElementById("estadoEditar").value;
 
-            let nombre =
-                document.getElementById("nombreEditar").value;
-
-            let nuevaCantidad =
-                document.getElementById("cantidadEditar").value;
-
-            let nuevoEstado =
-                document.getElementById("estadoEditar").value;
-
-            let implementos =
-                document.querySelectorAll(".implemento");
+            let implementos = document.querySelectorAll(".implemento");
 
             implementos.forEach(implemento => {
-
-                let titulo =
-                    implemento.querySelector("h3");
+                let titulo = implemento.querySelector(".frente h3");
 
                 if (
+                    titulo &&
                     titulo.textContent.toLowerCase() ==
                     nombre.toLowerCase()
                 ) {
-
-                    let textos =
-                        implemento.querySelectorAll("p");
-
-                    textos[0].textContent =
-                        "Cantidad: " + nuevaCantidad;
-
-                    textos[1].textContent =
-                        "Estado: " + nuevoEstado;
-
+                    let textos = implemento.querySelectorAll(".frente .info p");
+                    textos[0].textContent = "Cantidad: " + nuevaCantidad;
+                    textos[1].textContent = "Estado: " + nuevoEstado;
                 }
-
             });
 
             modalEditar.style.display = "none";
-
         }
 
         function borrarImplemento() {
-
-            let nombre =
-                prompt("Nombre del implemento");
-
-            let implementos =
-                document.querySelectorAll(".implemento");
+            let nombre = prompt("Nombre del implemento");
+            let implementos = document.querySelectorAll(".implemento");
 
             implementos.forEach(implemento => {
-
-                let titulo =
-                    implemento.querySelector("h3").textContent;
+                let titulo = implemento.querySelector(".frente h3").textContent;
 
                 if (
-                    titulo.toLowerCase() ==
-                    nombre.toLowerCase()
+                    titulo.toLowerCase() == nombre.toLowerCase()
                 ) {
-
                     implemento.remove();
-
                 }
-
             });
-
         }
 
         function crearSeccionImplemento() {
-
-            let nombreSeccion =
-                prompt("Nombre de la nueva sección");
+            let nombreSeccion = prompt("Nombre de la nueva sección");
 
             if (
                 nombreSeccion == null ||
                 nombreSeccion == ""
             ) {
-
                 return;
-
             }
 
-            let id =
-                nombreSeccion.replace(/\s+/g, "");
+            let id = nombreSeccion.replace(/\s+/g, "");
 
-            let enlace =
-                document.createElement("a");
-
+            let enlace = document.createElement("a");
             enlace.href = "#" + id;
-
             enlace.textContent = nombreSeccion;
 
-            document
-                .querySelector(".menu-implementos")
-                .appendChild(enlace);
+            document.querySelector(".menu-implementos").appendChild(enlace);
 
-            let nuevaSeccion =
-                document.createElement("div");
-
+            let nuevaSeccion = document.createElement("div");
             nuevaSeccion.id = id;
-
             nuevaSeccion.classList.add("seccion-implementos");
 
             document.body.insertBefore(
@@ -481,63 +407,43 @@
                 document.querySelector("footer")
             );
 
-            let option =
-                document.createElement("option");
-
+            let option = document.createElement("option");
             option.value = id;
-
             option.textContent = nombreSeccion;
 
             document
                 .getElementById("categoriaImplemento")
                 .appendChild(option);
-
         }
 
         function borrarSeccionImplemento() {
-
-            let nombre =
-                prompt("Nombre de la sección");
+            let nombre = prompt("Nombre de la sección");
 
             if (
                 nombre == null ||
                 nombre == ""
             ) {
-
                 return;
-
             }
 
-            let id =
-                nombre.replace(/\s+/g, "");
-
-            let seccion =
-                document.getElementById(id);
+            let id = nombre.replace(/\s+/g, "");
+            let seccion = document.getElementById(id);
 
             if (seccion) {
-
                 seccion.remove();
-
             }
 
-            let enlaces =
-                document.querySelectorAll(".menu-implementos a");
+            let enlaces = document.querySelectorAll(".menu-implementos a");
 
             enlaces.forEach(enlace => {
-
                 if (
                     enlace.textContent.toLowerCase() ==
                     nombre.toLowerCase()
                 ) {
-
                     enlace.remove();
-
                 }
-
             });
-
         }
-
     </script>
 
 </body>
