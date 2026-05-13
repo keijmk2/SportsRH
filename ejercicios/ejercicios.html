@@ -19,12 +19,13 @@
         </div>
 
         <nav>
-            <a href="/pagina iniciada/pagina sesion iniciada.html">VOLVER AL INICIO</a>
-            <a href="/contactos/contactanoscopy.html">CONTACTANOS</a>
-            <a href="/nosotros/nosotrocopy.html">ACERCA DE NOSOTROS</a>
-            <a href="/perfil de usuario/perfiluser.html">PERFIL</a>
+            <a href="/pagina iniciada/pagina sesion iniciada.html" style="font-weight: bold;">VOLVER AL INICIO</a>
+            <a class="nav-link text-white" href="/perfil de usuario/perfiluser.html" style="font-weight: bold;">PERFIL</a>
+                <a class="nav-link text-white" href="/contactos/contactanoscopy.html" style="font-weight: bold;">CONTACTANOS</a>
+                <a class="nav-link text-white" href="/nosotros/nosotrocopy.html" style="font-weight: bold;">ACERCA DE NOSOTROS</a>
         </nav>
     </header>
+
     <main>
         <h2 style="text-align:center;">ACTIVIDADES</h2>
         <h5 style="text-align:center;">Descubre nuestras actividades deportivas según nuestros implementos deportivos
@@ -35,86 +36,9 @@
         <!-- CARRUSEL -->
         <div id="carouselEjercicios" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500">
 
-            <div class="carousel-indicators">
-                <button data-bs-target="#carouselEjercicios" data-bs-slide-to="0" class="active"></button>
-                <button data-bs-target="#carouselEjercicios" data-bs-slide-to="1"></button>
-                <button data-bs-target="#carouselEjercicios" data-bs-slide-to="2"></button>
-                <button data-bs-target="#carouselEjercicios" data-bs-slide-to="3"></button>
-            </div>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
 
-            <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                    <img src="/Imagenes/Futbol.jpg" class="img-carousel hover-img" data-bs-toggle="modal"
-                        data-bs-target="#modalBalon">
-
-                    <div class="carousel-caption">
-                        <h4>Ejercicios con balón</h4>
-                        <p>Pases básicos</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="/Imagenes/aro N.jpg" class="img-carousel hover-img" data-bs-toggle="modal"
-                        data-bs-target="#modalAro">
-
-                    <div class="carousel-caption">
-                        <h4>Ejercicios con aro</h4>
-                        <p>Saltos coordinados</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="/Imagenes/bastones.jpg" class="img-carousel hover-img" data-bs-toggle="modal"
-                        data-bs-target="#modalBastones">
-
-                    <div class="carousel-caption">
-                        <h4>Ejercicios con bastones</h4>
-                        <p>Coordinación y control</p>
-                    </div>
-                </div>
-
-                <div class="carousel-item">
-                    <img src="/Imagenes/colchoneta.jpg" class="img-carousel hover-img" data-bs-toggle="modal"
-                        data-bs-target="#modalColchonetas">
-
-                    <div class="carousel-caption">
-                        <h4>Ejercicios con colchonetas</h4>
-                        <p>Flexibilidad y recuperación</p>
-                    </div>
-                </div>
-
-                <!-- MODALES -->
-                <div class="modal fade" id="modalBalon">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content p-3">
-                            <h4>Ejercicios con balón</h4>
-                            <ul>
-                                <li>Pases en pareja: Mejora la coordinación y la precisión pasando el balón entre dos
-                                    personas a
-                                    diferentes distancias.</li>
-                                <br>
-                                <li>Sentadillas con balón: Sostén el balón frente al pecho mientras realizas sentadillas
-                                    para trabajar
-                                    piernas y core.</li>
-                                <br>
-                                <li>Lanzamiento contra pared: Lanza y recibe el balón rápidamente para desarrollar
-                                    reflejos y fuerza en
-                                    brazos.</li>
-                                <br>
-                                <li>Abdominales con balón: Sujeta el balón durante los abdominales para aumentar la
-                                    activación del core.
-                                </li>
-                                <br>
-                                <li> Zigzag con balón: Conduce el balón entre conos u obstáculos para mejorar agilidad y
-                                    control
-                                    corporal.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            <div class="carousel-inner" id="carouselInner"></div>
 
             <button class="carousel-control-prev" data-bs-target="#carouselEjercicios" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon"></span>
@@ -125,86 +49,113 @@
             </button>
 
         </div>
-
-        <div class="modal fade" id="modalAro">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-3">
-                    <h4>Ejercicios con aro</h4>
-                    <ul>
-                        <li>Saltos dentro del aro: Mejora la coordinación y la agilidad realizando saltos rápidos dentro
-                            y
-                            fuera del aro.</li>
-                        <br>
-                        <li>Carrera de precisión: Corre pasando por varios aros colocados en el suelo para trabajar
-                            velocidad y
-                            equilibrio.</li>
-                        <br>
-                        <li>Lanzamiento al aro: Practica puntería lanzando pelotas dentro de un aro a diferentes
-                            distancias.</li>
-                        <br>
-                        <li>Equilibrio con aro: Mantén el aro en movimiento alrededor de la cintura o brazos para
-                            desarrollar
-                            coordinación motriz.</li>
-                        <br>
-                        <li>Circuito de aros: Combina saltos, desplazamientos y cambios de dirección usando varios aros
-                            en
-                            secuencia.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modalBastones">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-3">
-                    <h4>Ejercicios con bastones</h4>
-                    <ul>
-                        <li>Saltos sobre bastones: Coloca bastones en el suelo y realiza saltos laterales o frontales
-                            para
-                            mejorar agilidad.</li>
-                        <br>
-                        <li>Carrera en zigzag: Usa bastones como obstáculos para trabajar coordinación y cambios de
-                            dirección.</li>
-                        <br>
-                        <li>Equilibrio con bastón: Camina sosteniendo un bastón para desarrollar estabilidad y control
-                            corporal.
-                        </li>
-                        <br>
-                        <li>Relevos con bastón: Ejercicio en equipo donde se pasa el bastón mientras se realizan
-                            recorridos
-                            cortos.</li>
-                        <br>
-                        <li>Movilidad de hombros: Utiliza el bastón para ejercicios de estiramiento y movilidad
-                            articular.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="modalColchonetas">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content p-3">
-                    <h4>Ejercicios con colchonetas</h4>
-                    <ul>
-                        <li>Estiramientos en colchoneta: Realiza estiramientos suaves sobre la colchoneta para mejorar
-                            la flexibilidad.</li>
-                        <br>
-                        <li>Posiciones de yoga: Utiliza la colchoneta para realizar posiciones de yoga y mejorar la
-                            movilidad.</li>
-                        <br>
-                        <li>Ejercicios de recuperación: Colócate sobre la colchoneta para realizar ejercicios de
-                            recuperación y aliviar el estrés muscular.</li>
-                        <br>
-                        <li>Entrenamiento funcional: Usa la colchoneta para realizar ejercicios funcionales que mejoren
-                            la estabilidad y el control corporal.</li>
-                        <br>
-                        <li>Trabajo del core: Realiza ejercicios en la colchoneta para trabajar el core y mejorar la
-                            postura.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </main>
+
+    <!-- BOTÓN + -->
+    <div class="fab-wrapper dropdown">
+        <button class="fab-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            +
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end fab-menu">
+            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalAddExercise">Añadir
+                    ejercicio</button></li>
+            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalEditExercise">Editar
+                    ejercicio</button></li>
+            <li><button class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalDeleteExercise">Borrar
+                    ejercicio</button></li>
+        </ul>
+    </div>
+
+    <!-- MODAL AÑADIR -->
+    <div class="modal fade" id="modalAddExercise" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-4">
+                <h4 class="mb-3">Añadir ejercicio</h4>
+
+                <form id="formAddExercise">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre del implemento</label>
+                        <input type="text" class="form-control" id="addName" placeholder="Ej. balones, conos, cuerda..."
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Imagen</label>
+                        <input type="text" class="form-control" id="addImage"
+                            placeholder="/Imagenes/tu-imagen.jpg o URL de imagen" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Ejercicios</label>
+                        <textarea class="form-control large-textarea" id="addExercises"
+                            placeholder="Escribe un ejercicio por línea..." required></textarea>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL EDITAR -->
+    <div class="modal fade" id="modalEditExercise" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content p-4">
+                <h4 class="mb-3">Editar ejercicio</h4>
+
+                <div class="mb-3">
+                    <label class="form-label">Selecciona el implemento</label>
+                    <select class="form-select" id="editSelect"></select>
+                </div>
+
+                <div class="edit-box">
+                    <h6 class="mb-3">Ejercicios actuales</h6>
+                    <ul id="editExerciseList" class="list-group mb-3"></ul>
+
+                    <div class="mb-3">
+                        <label class="form-label">Añadir nuevo ejercicio</label>
+                        <input type="text" class="form-control" id="newExerciseText"
+                            placeholder="Escribe un nuevo ejercicio">
+                    </div>
+
+                    <div class="text-end mb-3">
+                        <button type="button" class="btn btn-primary" id="btnAddNewExercise">Añadir ejercicio</button>
+                    </div>
+                </div>
+
+                <div class="text-end">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL BORRAR -->
+    <div class="modal fade" id="modalDeleteExercise" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <h4 class="mb-3">Borrar ejercicio</h4>
+
+                <form id="formDeleteExercise">
+                    <div class="mb-3">
+                        <label class="form-label">Nombre exacto del implemento</label>
+                        <input type="text" class="form-control" id="deleteName"
+                            placeholder="Escribe el nombre exacto para borrarlo" required>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Borrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="adminMessage" class="admin-message" style="display:none;"></div>
 
     <!-- FOOTER -->
     <footer>
@@ -214,6 +165,323 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const storageKey = "sportsrh_ejercicios_v1";
+
+        const defaultData = [
+            {
+                name: "Ejercicios con balón",
+                image: "/Imagenes/Futbol.jpg",
+                exercises: [
+                    "Pases en pareja: Mejora la coordinación y la precisión pasando el balón entre dos personas a diferentes distancias.",
+                    "Sentadillas con balón: Sostén el balón frente al pecho mientras realizas sentadillas para trabajar piernas y core.",
+                    "Lanzamiento contra pared: Lanza y recibe el balón rápidamente para desarrollar reflejos y fuerza en brazos.",
+                    "Abdominales con balón: Sujeta el balón durante los abdominales para aumentar la activación del core.",
+                    "Zigzag con balón: Conduce el balón entre conos u obstáculos para mejorar agilidad y control corporal."
+                ]
+            },
+            {
+                name: "Ejercicios con aro",
+                image: "/Imagenes/aro N.jpg",
+                exercises: [
+                    "Saltos dentro del aro: Mejora la coordinación y la agilidad realizando saltos rápidos dentro y fuera del aro.",
+                    "Carrera de precisión: Corre pasando por varios aros colocados en el suelo para trabajar velocidad y equilibrio.",
+                    "Lanzamiento al aro: Practica puntería lanzando pelotas dentro de un aro a diferentes distancias.",
+                    "Equilibrio con aro: Mantén el aro en movimiento alrededor de la cintura o brazos para desarrollar coordinación motriz.",
+                    "Circuito de aros: Combina saltos, desplazamientos y cambios de dirección usando varios aros en secuencia."
+                ]
+            },
+            {
+                name: "Ejercicios con bastones",
+                image: "/Imagenes/bastones.jpg",
+                exercises: [
+                    "Saltos sobre bastones: Coloca bastones en el suelo y realiza saltos laterales o frontales para mejorar agilidad.",
+                    "Carrera en zigzag: Usa bastones como obstáculos para trabajar coordinación y cambios de dirección.",
+                    "Equilibrio con bastón: Camina sosteniendo un bastón para desarrollar estabilidad y control corporal.",
+                    "Relevos con bastón: Ejercicio en equipo donde se pasa el bastón mientras se realizan recorridos cortos.",
+                    "Movilidad de hombros: Utiliza el bastón para ejercicios de estiramiento y movilidad articular."
+                ]
+            },
+            {
+                name: "Ejercicios con colchonetas",
+                image: "/Imagenes/colchoneta.jpg",
+                exercises: [
+                    "Estiramientos en colchoneta: Realiza estiramientos suaves sobre la colchoneta para mejorar la flexibilidad.",
+                    "Posiciones de yoga: Utiliza la colchoneta para realizar posiciones de yoga y mejorar la movilidad.",
+                    "Ejercicios de recuperación: Colócate sobre la colchoneta para realizar ejercicios de recuperación y aliviar el estrés muscular.",
+                    "Entrenamiento funcional: Usa la colchoneta para hacer ejercicios funcionales que mejoren la estabilidad y el control corporal.",
+                    "Trabajo del core: Realiza ejercicios en la colchoneta para trabajar el core y mejorar la postura."
+                ]
+            }
+        ];
+
+        let exercisesData = loadData();
+
+        function loadData() {
+            try {
+                const saved = JSON.parse(localStorage.getItem(storageKey));
+                if (Array.isArray(saved) && saved.length > 0) return saved;
+            } catch (e) { }
+            return defaultData;
+        }
+
+        function saveData() {
+            localStorage.setItem(storageKey, JSON.stringify(exercisesData));
+        }
+
+        function setMessage(text, type = "success") {
+            const message = document.getElementById("adminMessage");
+            if (!message) return;
+            message.className = `admin-message ${type}`;
+            message.textContent = text;
+            message.style.display = "block";
+            setTimeout(() => {
+                message.textContent = "";
+                message.className = "admin-message";
+                message.style.display = "none";
+            }, 2600);
+        }
+
+        function renderCarousel() {
+            const indicators = document.getElementById("carouselIndicators");
+            const inner = document.getElementById("carouselInner");
+
+            indicators.innerHTML = "";
+            inner.innerHTML = "";
+
+            exercisesData.forEach((item, index) => {
+                const indicator = document.createElement("button");
+                indicator.setAttribute("data-bs-target", "#carouselEjercicios");
+                indicator.setAttribute("data-bs-slide-to", index);
+                if (index === 0) indicator.classList.add("active");
+                indicators.appendChild(indicator);
+
+                const carouselItem = document.createElement("div");
+                carouselItem.className = "carousel-item" + (index === 0 ? " active" : "");
+
+                const img = document.createElement("img");
+                img.src = item.image;
+                img.className = "img-carousel hover-img";
+                img.setAttribute("data-bs-toggle", "modal");
+                img.setAttribute("data-bs-target", `#modalItem${index}`);
+                img.alt = item.name;
+                img.onerror = function () {
+                    this.src = "https://via.placeholder.com/800x800?text=Sin+imagen";
+                };
+
+                const caption = document.createElement("div");
+                caption.className = "carousel-caption";
+                caption.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <p>${item.exercises[0] ? item.exercises[0].split(":")[0] : "Ejercicios disponibles"}</p>
+                `;
+
+                carouselItem.appendChild(img);
+                carouselItem.appendChild(caption);
+                inner.appendChild(carouselItem);
+            });
+        }
+
+        function renderModals() {
+            document.querySelectorAll(".dynamic-modal").forEach(modal => modal.remove());
+
+            exercisesData.forEach((item, index) => {
+                const modal = document.createElement("div");
+                modal.className = "modal fade dynamic-modal";
+                modal.id = `modalItem${index}`;
+                modal.setAttribute("tabindex", "-1");
+
+                const dialog = document.createElement("div");
+                dialog.className = "modal-dialog modal-dialog-centered";
+
+                const content = document.createElement("div");
+                content.className = "modal-content p-3";
+
+                let listHTML = "";
+                item.exercises.forEach(ex => {
+                    listHTML += `<li>${ex}</li><br>`;
+                });
+
+                content.innerHTML = `
+                    <h4>${item.name}</h4>
+                    <ul>${listHTML}</ul>
+                `;
+
+                dialog.appendChild(content);
+                modal.appendChild(dialog);
+                document.body.appendChild(modal);
+            });
+        }
+
+        function renderEditSelector() {
+            const select = document.getElementById("editSelect");
+            if (!select) return;
+
+            select.innerHTML = "";
+
+            exercisesData.forEach((item, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = item.name;
+                select.appendChild(option);
+            });
+
+            if (exercisesData.length === 0) {
+                const option = document.createElement("option");
+                option.value = "";
+                option.textContent = "No hay implementos";
+                select.appendChild(option);
+            }
+
+            renderEditList();
+        }
+
+        function renderEditList() {
+            const select = document.getElementById("editSelect");
+            const list = document.getElementById("editExerciseList");
+            if (!select || !list) return;
+
+            const index = Number(select.value);
+            list.innerHTML = "";
+
+            if (Number.isNaN(index) || !exercisesData[index]) {
+                const li = document.createElement("li");
+                li.className = "list-group-item";
+                li.textContent = "No hay implementos para editar.";
+                list.appendChild(li);
+                return;
+            }
+
+            exercisesData[index].exercises.forEach((exercise, exerciseIndex) => {
+                const li = document.createElement("li");
+                li.className = "list-group-item edit-item";
+
+                const span = document.createElement("span");
+                span.textContent = exercise;
+
+                const removeBtn = document.createElement("button");
+                removeBtn.className = "btn btn-sm btn-danger";
+                removeBtn.textContent = "Borrar";
+                removeBtn.addEventListener("click", () => {
+                    exercisesData[index].exercises.splice(exerciseIndex, 1);
+                    saveData();
+                    renderCarousel();
+                    renderModals();
+                    renderEditList();
+                    setMessage("Ejercicio borrado correctamente.", "success");
+                });
+
+                li.appendChild(span);
+                li.appendChild(removeBtn);
+                list.appendChild(li);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderCarousel();
+            renderModals();
+            renderEditSelector();
+
+            const editSelect = document.getElementById("editSelect");
+            if (editSelect) {
+                editSelect.addEventListener("change", renderEditList);
+            }
+
+            const formAddExercise = document.getElementById("formAddExercise");
+            if (formAddExercise) {
+                formAddExercise.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById("addName").value.trim();
+                    const image = document.getElementById("addImage").value.trim();
+                    const exercisesText = document.getElementById("addExercises").value.trim();
+
+                    if (!name || !image || !exercisesText) {
+                        setMessage("Completa todos los campos para añadir el implemento.", "danger");
+                        return;
+                    }
+
+                    const exercises = exercisesText
+                        .split("\n")
+                        .map(line => line.trim())
+                        .filter(line => line.length > 0);
+
+                    exercisesData.push({
+                        name,
+                        image,
+                        exercises
+                    });
+
+                    saveData();
+                    renderCarousel();
+                    renderModals();
+                    renderEditSelector();
+                    this.reset();
+
+                    const modal = bootstrap.Modal.getInstance(document.getElementById("modalAddExercise"));
+                    modal.hide();
+
+                    setMessage("Implemento añadido correctamente.", "success");
+                });
+            }
+
+            const btnAddNewExercise = document.getElementById("btnAddNewExercise");
+            if (btnAddNewExercise) {
+                btnAddNewExercise.addEventListener("click", () => {
+                    const select = document.getElementById("editSelect");
+                    const index = Number(select.value);
+                    const text = document.getElementById("newExerciseText").value.trim();
+
+                    if (Number.isNaN(index) || !exercisesData[index]) {
+                        setMessage("No hay implemento seleccionado.", "danger");
+                        return;
+                    }
+
+                    if (!text) {
+                        setMessage("Escribe un ejercicio nuevo.", "danger");
+                        return;
+                    }
+
+                    exercisesData[index].exercises.push(text);
+                    document.getElementById("newExerciseText").value = "";
+                    saveData();
+                    renderCarousel();
+                    renderModals();
+                    renderEditList();
+
+                    setMessage("Ejercicio añadido correctamente.", "success");
+                });
+            }
+
+            const formDeleteExercise = document.getElementById("formDeleteExercise");
+            if (formDeleteExercise) {
+                formDeleteExercise.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    const name = document.getElementById("deleteName").value.trim();
+                    const index = exercisesData.findIndex(item => item.name.trim() === name);
+
+                    if (index === -1) {
+                        setMessage("No se encontró un implemento con ese nombre exacto.", "danger");
+                        return;
+                    }
+
+                    exercisesData.splice(index, 1);
+                    saveData();
+                    renderCarousel();
+                    renderModals();
+                    renderEditSelector();
+                    this.reset();
+
+                    const modal = bootstrap.Modal.getInstance(document.getElementById("modalDeleteExercise"));
+                    modal.hide();
+
+                    setMessage("Implemento borrado correctamente.", "success");
+                });
+            }
+        });
+    </script>
 
 </body>
 
