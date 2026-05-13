@@ -1,53 +1,66 @@
 body {
+
     background-color: #1a1a1a;
     font-family: Arial, sans-serif;
     margin: 0;
 }
 
+/* CABEZA */
 .cabeza {
+
     background-color: #588157;
     padding: 10px 20px;
 }
 
 header {
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo-titulo {
+
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
 .logo-titulo img {
+
     width: 60px;
 }
 
 .logo-titulo h1 {
+
     color: white;
     font-size: 22px;
 }
 
+/* NAV */
 nav {
+
     display: flex;
-    justify-content: flex-end; /* derecha */
+    justify-content: flex-end;
     align-items: center;
     gap: 20px;
 }
 
 nav a {
+
     text-decoration: none;
     color: white;
     font-weight: bold;
 }
 
 nav a:hover {
+
     text-decoration: underline;
 }
 
+/* PERFIL */
 .perfil {
+
     max-width: 800px;
     margin: 40px auto;
     background-color: #2a2a2a;
@@ -57,33 +70,56 @@ nav a:hover {
 }
 
 .perfil-header {
+
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
 .perfil-header h2 {
+
     margin: 0;
 }
 
 .rol {
+
     background-color: #588157;
     padding: 5px 10px;
     border-radius: 10px;
     font-size: 14px;
 }
 
-.perfil-header button {
+.botones-header {
+
     margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.perfil-header button {
+
     padding: 8px 15px;
     border: none;
     border-radius: 8px;
     background-color: #588157;
     color: white;
     cursor: pointer;
+    transition: 0.3s;
 }
 
+.perfil-header button:hover {
+
+    transform: scale(1.05);
+}
+
+.cerrar-btn {
+
+    background-color: #c0392b !important;
+}
+
+/* BLOQUES */
 .perfil-info {
+
     margin-top: 25px;
     padding: 15px;
     background-color: #333;
@@ -91,12 +127,20 @@ nav a:hover {
 }
 
 .perfil-info h3 {
+
     margin-bottom: 10px;
 }
 
-.btn-sec {
+.botones-seguridad {
+
+    display: flex;
+    gap: 10px;
     margin-top: 10px;
-    padding: 6px 12px;
+}
+
+.btn-sec {
+
+    padding: 8px 12px;
     border: none;
     border-radius: 6px;
     background-color: orange;
@@ -104,15 +148,29 @@ nav a:hover {
     cursor: pointer;
 }
 
+.btn-ver {
+
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #588157;
+    color: white;
+    cursor: pointer;
+}
+
 .ok {
+
     color: #4caf50;
 }
 
 .no {
+
     color: #ff4d4d;
 }
 
+/* FOOTER */
 footer {
+
     background-color: #588157;
     color: white;
     padding: 10px;
@@ -120,24 +178,111 @@ footer {
     margin-top: 40px;
 }
 
+/* MODAL */
+.modal {
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+
+    background-color: #2a2a2a;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    width: 350px;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-contenido input {
+
+    padding: 10px;
+
+    border: none;
+    border-radius: 8px;
+
+    outline: none;
+}
+
+.modal-botones {
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-botones button {
+
+    padding: 10px 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background-color: #588157;
+
+    color: white;
+}
+
+.cancelar {
+
+    background-color: #c0392b !important;
+}
+
+/* RESPONSIVE */
 @media(max-width:576px) {
 
     header {
+
         flex-direction: column;
         gap: 10px;
     }
 
     nav {
+
         justify-content: center;
         flex-wrap: wrap;
     }
 
     .perfil-header {
+
         flex-direction: column;
         text-align: center;
     }
 
-    .perfil-header button {
+    .botones-header {
+
         margin: 10px 0 0 0;
+        flex-direction: column;
+    }
+
+    .botones-seguridad {
+
+        flex-direction: column;
+    }
+
+    .modal-contenido {
+
+        width: 85%;
     }
 }

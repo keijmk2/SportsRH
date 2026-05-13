@@ -10,7 +10,7 @@
 </head>
 
 <body>
-
+    <!-- CABEZA -->
     <section class="cabeza">
         <header>
             <div class="logo-titulo">
@@ -25,57 +25,163 @@
             </nav>
         </header>
     </section>
-
+    <!-- PERFIL -->
     <main>
         <section class="perfil">
-
+            <!-- HEADER PERFIL -->
             <div class="perfil-header">
                 <div>
-                    <h2>Administrador</h2>
-                    <span class="rol">Administrador</span>
+                    <h2 id="nombrePerfil">
+                        Administrador
+                    </h2>
+                    <span class="rol">
+                        Administrador
+                    </span>
                 </div>
-                <button>Editar perfil</button>
+                <div class="botones-header">
+                    <button onclick="abrirEditar()">
+                        Editar perfil
+                    </button>
+                    <button class="cerrar-btn"
+                            onclick="cerrarSesion()">
+                        Cerrar sesión
+                    </button>
+                </div>
             </div>
-
+            <!-- INFORMACIÓN -->
             <div class="perfil-info">
                 <h3>Información Personal</h3>
-                <p><strong>Correo:</strong> admin.SportsRH@gmail.com</p>
-                <p><strong>Teléfono:</strong> 3000000</p>
-                <p><strong>Código ID:</strong> 12345</p>
+                <p>
+                    <strong>Correo:</strong>
+                    <span id="correoTexto">
+                        admin.SportsRH@gmail.com
+                    </span>
+                </p>
+                <p>
+                    <strong>Teléfono:</strong>
+                    <span id="telefonoTexto">
+                        3000000
+                    </span>
+                </p>
+                <p>
+                    <strong>ID Usuario:</strong>
+                    <span id="codigoTexto">
+                        12345
+                    </span>
+                </p>
             </div>
-
+            <!-- SEGURIDAD -->
             <div class="perfil-info">
                 <h3>Seguridad</h3>
-                <p><strong>Usuario:</strong> admin</p>
-                <p><strong>Contraseña:</strong> ********</p>
-                <button class="btn-sec">Cambiar contraseña</button>
+                <p>
+                    <strong>Usuario:</strong>
+                    <span id="usuarioTexto">
+                        admin
+                    </span>
+                </p>
+                <p>
+                    <strong>Contraseña:</strong>
+                    <span id="contraTexto">
+                        ********
+                    </span>
+                </p>
+                <div class="botones-seguridad">
+                    <button class="btn-sec"
+                            onclick="abrirContra()">
+                        Cambiar contraseña
+                    </button>
+                    <button class="btn-ver"
+                            onclick="verContraseña()">
+                        Ver contraseña
+                    </button>
+                </div>
             </div>
 
+            <!-- PERMISOS -->
             <div class="perfil-info">
                 <h3>Permisos (Administrador)</h3>
                 <ul>
-                    <li class="ok">✔ Ver inventario</li>
-                    <li class="ok">✔ Registrar inventario</li>
-                    <li class="ok">✔ Eliminar inventario</li>
+                    <li class="ok">
+                        ✔ Ver inventario
+                    </li>
+                    <li class="ok">
+                        ✔ Registrar inventario
+                    </li>
+                    <li class="ok">
+                        ✔ Eliminar inventario
+                    </li>
                 </ul>
             </div>
-
+            <!-- ACTIVIDAD -->
             <div class="perfil-info">
                 <h3>Actividad reciente</h3>
                 <ul>
-                    <li>Agregó 5 balones - 10/04/2026</li>
-                    <li>Eliminó 10 conos - 08/04/2026</li>
+                    <li>
+                        Agregó 5 balones - 10/04/2026
+                    </li>
+                    <li>
+                        Eliminó 10 conos - 08/04/2026
+                    </li>
                 </ul>
             </div>
-
         </section>
     </main>
-
+    <!-- MODAL EDITAR -->
+    <div class="modal"
+         id="modalEditar">
+        <div class="modal-contenido">
+            <h2>Editar Perfil</h2>
+            <input type="text"
+                   id="nuevoNombre"
+                   placeholder="Nuevo nombre">
+            <input type="email"
+                   id="nuevoCorreo"
+                   placeholder="Nuevo correo">
+            <input type="text"
+                   id="nuevoTelefono"
+                   placeholder="Nuevo teléfono">
+            <div class="modal-botones">
+                <button onclick="guardarPerfil()">
+                    Guardar
+                </button>
+                <button class="cancelar"
+                        onclick="cerrarEditar()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL CONTRASEÑA -->
+    <div class="modal"
+         id="modalContra">
+        <div class="modal-contenido">
+            <h2>Cambiar Contraseña</h2>
+            <input type="text"
+                   id="idUsuario"
+                   placeholder="IIngresa el código">
+            <input type="password"
+                   id="nuevaContra"
+                   placeholder="Nueva contraseña">
+            <div class="modal-botones">
+                <button onclick="guardarContra()">
+                    Guardar
+                </button>
+                <button class="cancelar"
+                        onclick="cerrarContra()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
     <footer>
         <h6>© SPORT RH 2026</h6>
-        <h6>Cra. 50B #97a-30, Santa Cruz, Medellín, Santa Cruz, Medellín, Antioquia</h6>
+        <h6>
+            Cra. 50B #97a-30,
+            Santa Cruz, Medellín,
+            Antioquia
+        </h6>
     </footer>
-
 </body>
 
 </html>
