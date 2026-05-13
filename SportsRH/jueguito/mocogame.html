@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/SportsRH/Imagenes/logo Moco-Rush.png">
+    <link rel="stylesheet" href="./mocogame.css">
+    <title>Moco Rush</title>
+</head>
+
+
+<body>
+    <div class="wrap">
+        <div class="hud-bar">
+            <div class="pill"><span>Juego:</span> Moco Rush</div>
+            <div class="stats">
+                <div class="pill"><span>Puntos:</span> <strong id="score">0</strong></div>
+                <div class="pill"><span>Vida:</span> <strong id="lives">3</strong></div>
+                <div class="pill"><span>Nivel:</span> <strong id="level">1</strong></div>
+                <div class="pill"><span>Tiempo:</span> <strong id="timer">0:00</strong></div>
+            </div>
+        </div>
+        <div class="game-shell">
+            <canvas id="game" aria-label="Juego Moco Rush"></canvas>
+            <div class="hud">
+                <div class="topbar">
+                </div>
+
+                <div class="overlay" id="overlay">
+                    <div class="card">
+                        <h1 class="title" id="menuTitle">Moco Rush</h1>
+                        <p class="subtitle" id="menuSubtitle">Controla al moco, recoge gotitas brillantes y esquiva los
+                            microbios.</p>
+
+                        <div class="result-box" id="resultBox" style="display:none;">
+                            <strong>Resultado de la partida</strong>
+                            <div class="row">Puntos logrados: <span id="finalScore">0</span></div>
+                            <div class="row">Dificultad: <span id="finalDifficulty">Fácil</span></div>
+                            <div class="row">Tiempo: <span id="finalTime">0:00</span></div>
+                        </div>
+
+                        <div class="difficulty-box">
+                            <label id="difficultyLabel" style="font-weight:800; text-align:left;">Elegir
+                                dificultad</label>
+                            <div class="difficulty-picker" id="difficultyPicker">
+                                <button type="button" class="difficulty-chip"
+                                    data-diff="easy">Fácil<br><small>3s</small></button>
+                                <button type="button" class="difficulty-chip"
+                                    data-diff="medium">Medio<br><small>4s</small></button>
+                                <button type="button" class="difficulty-chip"
+                                    data-diff="hard">Difícil<br><small>6s</small></button>
+                                <button type="button" class="difficulty-chip"
+                                    data-diff="extreme">EXTREMO<br><small>8s</small></button>
+                            </div>
+                        </div>
+
+                        <div class="color-selector">
+                            <label style="font-weight:800; text-align:left;">Elegir personaje</label>
+                            <div class="color-selector-row">
+                                <canvas id="previewCanvas" width="172" height="172"></canvas>
+                                <div class="color-swatches" id="colorSwatches"></div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px;">
+                            <button id="startBtn">Jugar</button>
+                            <button id="restartBtn" class="secondary" style="display:none;">Jugar otra vez</button>
+                        </div>
+
+                        <div class="footer-note">LOS MOCOSOS IA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('game');
+        const ctx = canvas.getContext('2d');
+        const overlay = document.getElementById('overlay');
+        const startBtn = document.getElementById('startBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        const difficultyPicker = document.getElementById('difficultyPicker');
+        const menuTitle = document.getElementById('menuTitle');
+        const menuSubtitle = document.getElementById('menuSubtitle');
+        const resultBox = document.getElementById('resultBox');
+        const finalScore = document.getElementById('finalScore');
+        const finalDifficulty = document.getElementById('finalDifficulty');
+        const finalTime = document.getElementById('finalTime');
+
+        const scoreEl = document.getElementById('score');
+        const livesEl = document.getElementById('lives');
+        const levelEl = document.getElementById('level');
+        const timerEl = document.getElementById('timer');
+
+        const difficultyConfig = {
+            easy: { label: 'Fácil', ttlMin: 3, ttlMax: 3 },
+            medium: { label: 'Medio', ttlMin: 4, ttlMax: 4 },
+            hard: { label: 'Difícil', ttlMin: 6, ttlMax: 6 },
+            extreme: { label: 'EXTREMO', ttlMin: 8, ttlMax: 8 }
+        };
+
+        // Paleta de colores del personaje
+        const playerColors = [
+            { name: 'Cian',     swatch: '#78d7ff', hi: 'rgba(214,252,255,1)', mid: 'rgba(120,215,255,0.98)', deep: 'rgba(24,132,185,0.92)',   glow: '120,215,255' },
+            { name: 'Verde',    swatch: '#43e89a', hi: 'rgba(214,255,232,1)', mid: 'rgba(67,232,154,0.98)',  deep: 'rgba(20,140,80,0.92)',    glow: '67,232,154'  },
+            { name: 'Morado',   swatch: '#c084fc', hi: 'rgba(240,214,255,1)', mid: 'rgba(192,132,252,0.98)', deep: 'rgba(100,40,180,0.92)',   glow: '192,132,252' },
+            { name: 'Naranja',  swatch: '#fb923c', hi: 'rgba(255,235,214,1)', mid: 'rgba(251,146,60,0.98)',  deep: 'rgba(180,80,20,0.92)',    glow: '251,146,60'  },
+            { name: 'Rosa',     swatch: '#f472b6', hi: 'rgba(255,214,238,1)', mid: 'rgba(244,114,182,0.98)', deep: 'rgba(180,40,100,0.92)',   glow: '244,114,182' },
+            { name: 'Amarillo', swatch: '#fde047', hi: 'rgba(255,253,214,1)', mid: 'rgba(253,224,71,0.98)',  deep: 'rgba(155,125,10,0.92)',   glow: '253,224,71'  },
+            { name: 'Rojo',     swatch: '#f87171', hi: 'rgba(255,220,220,1)', mid: 'rgba(248,113,113,0.98)', deep: 'rgba(160,30,30,0.92)',    glow: '248,113,113' },
+            { name: 'Blanco',   swatch: '#e2e8f0', hi: 'rgba(255,255,255,1)', mid: 'rgba(226,232,240,0.98)', deep: 'rgba(100,120,150,0.92)',  glow: '226,232,240' },
+        ];
+
+        let state = {
+            running: false,
+            gameOver: false,
+            score: 0,
+            lives: 3,
+            level: 1,
+            gameTime: 0,
+            lastTime: 0,
+            spawnTimer: 0,
+            dropTimer: 0,
+            particles: [],
+            enemies: [],
+            drops: [],
+            warnings: [],
+            boss: null,
+            powerups: [],
+            projectiles: [],
+            difficulty: 'easy',
+            colorIdx: 0,
+            nextBossAt: 100,
+            nextLevelAt: 50
+        };
+
+        const keys = new Set();
+        const world = { w: 0, h: 0, dpr: 1 };
+        const player = { x: 0, y: 0, r: 22, vx: 0, vy: 0, speed: 280, pulse: 0, invincible: 0, speedBoost: 0 };
+
+        // === Utilidades ===
+        function clamp(v, min, max) { return Math.max(min, Math.min(max, v)); }
+        function rand(min, max) { return Math.random() * (max - min) + min; }
+        function distance(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+        function formatTime(seconds) {
+            const s = Math.floor(seconds);
+            return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+        }
+
+        function currentDifficulty() {
+            return difficultyConfig[state.difficulty] || difficultyConfig.easy;
+        }
+
+        function syncDifficultyUI() {
+            document.querySelectorAll('.difficulty-chip').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.diff === state.difficulty);
+            });
+        }
+
+        function updateHud() {
+            scoreEl.textContent = state.score;
+            livesEl.textContent = state.lives;
+            levelEl.textContent = state.level;
+            timerEl.textContent = formatTime(state.gameTime);
+        }
+
+        function resize() {
+            const rect = canvas.getBoundingClientRect();
+            world.dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+            canvas.width = Math.floor(rect.width * world.dpr);
+            canvas.height = Math.floor(rect.height * world.dpr);
+            world.w = rect.width;
+            world.h = rect.height;
+            ctx.setTransform(world.dpr, 0, 0, world.dpr, 0, 0);
+
+            player.x = clamp(player.x, player.r, world.w - player.r);
+            player.y = clamp(player.y, player.r, world.h - player.r);
+        }
+
+        function clearWorld() {
+            state.spawnTimer = 0;
+            state.dropTimer = 0;
+            state.particles = [];
+            state.enemies = [];
+            state.drops = [];
+            state.warnings = [];
+            state.boss = null;
+            state.powerups = [];
+            state.projectiles = [];
+            state.nextBossAt = 100;
+            state.nextLevelAt = 50;
+        }
+
+        function resetGame(showMenu = true) {
+            state.running = false;
+            state.gameOver = false;
+            state.score = 0;
+            state.lives = 3;
+            state.level = 1;
+            state.gameTime = 0;
+            clearWorld();
+            player.x = world.w / 2;
+            player.y = world.h / 2;
+            player.vx = player.vy = 0;
+            player.invincible = 0;
+            player.speedBoost = 0;
+
+            if (showMenu) overlay.classList.remove('hidden');
+            resultBox.style.display = 'none';
+            startBtn.style.display = '';
+            restartBtn.style.display = 'none';
+
+            menuTitle.textContent = 'Moco Rush';
+            menuSubtitle.textContent = 'Controla al moco, recoge gotitas brillantes y esquiva los microbios.';
+            syncDifficultyUI();
+            updateHud();
+            draw();
+        }
+
+        function startGame() {
+            state.running = true;
+            state.gameOver = false;
+            state.lastTime = performance.now();
+            overlay.classList.add('hidden');
+            requestAnimationFrame(loop);
+        }
+
+        function finishGame() {
+            state.running = false;
+            state.gameOver = true;
+            overlay.classList.remove('hidden');
+            resultBox.style.display = 'block';
+            startBtn.style.display = 'none';
+            restartBtn.style.display = '';
+
+            menuTitle.textContent = 'Game Over';
+            menuSubtitle.textContent = '¡Tu partida terminó!';
+
+            finalScore.textContent = state.score;
+            finalDifficulty.textContent = currentDifficulty().label;
+            finalTime.textContent = formatTime(state.gameTime);
+        }
+
+        function winGame() {
+            state.running = false;
+            state.gameOver = true;
+            overlay.classList.remove('hidden');
+            resultBox.style.display = 'block';
+            startBtn.style.display = 'none';
+            restartBtn.style.display = '';
+
+            menuTitle.textContent = '🎉 ¡GANASTE!';
+            menuSubtitle.textContent = '¡Llegaste a los 5000 puntos! ¡Eres el mejor mocoso!';
+
+            finalScore.textContent = state.score;
+            finalDifficulty.textContent = currentDifficulty().label;
+            finalTime.textContent = formatTime(state.gameTime);
+        }
+
+        // === Creación de enemigos y gotas ===
+        // FIX: createEnemy now accepts forceSide, approxX, approxY so spawn location
+        // matches the warning indicator shown on the edge
+        function createEnemy(forceSide, approxX, approxY) {
+            const side = forceSide !== undefined ? forceSide : Math.floor(rand(0, 4));
+            const cfg = currentDifficulty();
+            const size = rand(17, 27) + state.level * 1.1;
+            const speed = rand(70, 140) + state.level * 18;
+            const ttl = rand(cfg.ttlMin, cfg.ttlMax);
+
+            const enemy = { x: 0, y: 0, r: size, vx: 0, vy: 0, speed, ttl, wobble: rand(0, Math.PI * 2), slant: rand(-1, 1) };
+
+            // side 0 = left, 1 = right, 2 = top, 3 = bottom
+            if (side === 0) { enemy.x = -size; enemy.y = approxY !== undefined ? approxY : rand(0, world.h); }
+            else if (side === 1) { enemy.x = world.w + size; enemy.y = approxY !== undefined ? approxY : rand(0, world.h); }
+            else if (side === 2) { enemy.x = approxX !== undefined ? approxX : rand(0, world.w); enemy.y = -size; }
+            else { enemy.x = approxX !== undefined ? approxX : rand(0, world.w); enemy.y = world.h + size; }
+
+            state.enemies.push(enemy);
+        }
+
+        function createDrop() {
+            state.drops.push({
+                x: rand(40, world.w - 40),
+                y: rand(90, world.h - 40),
+                r: rand(10, 15),
+                bob: rand(0, Math.PI * 2)
+            });
+        }
+
+        function burst(x, y, color, count = 12) {
+            for (let i = 0; i < count; i++) {
+                const angle = (Math.PI * 2 * i) / count;
+                state.particles.push({
+                    x, y,
+                    vx: Math.cos(angle) * rand(60, 180) + rand(-30, 30),
+                    vy: Math.sin(angle) * rand(60, 180) + rand(-30, 30),
+                    life: 1,
+                    decay: rand(1.2, 2.5),
+                    color
+                });
+            }
+        }
+
+        // ==================== NUEVAS FUNCIONES AÑADIDAS ====================
+        function createWarning(x, y, duration = 1.2) {
+            state.warnings.push({ x, y, life: duration, maxLife: duration });
+        }
+
+        function spawnBoss() {
+            state.boss = {
+                x: world.w / 2,
+                y: 100,
+                r: 45,
+                hp: 100,
+                maxHp: 100,
+                attackTimer: 0,
+                orbTimer: 0,
+                wobble: 0
+            };
+            // Orbes grises iniciales repartidos por el escenario
+            for (let i = 0; i < 8; i++) {
+                state.projectiles.push({
+                    x: rand(60, world.w - 60),
+                    y: rand(160, world.h - 80),
+                    r: 9,
+                    color: '#aaaaaa',
+                    damage: 5,
+                    type: 'gray'
+                });
+            }
+        }
+
+        // Spawnea nuevos orbes grises mientras el boss esté vivo
+        function spawnGrayOrbs(count = 3) {
+            for (let i = 0; i < count; i++) {
+                state.projectiles.push({
+                    x: rand(60, world.w - 60),
+                    y: rand(160, world.h - 80),
+                    r: 9,
+                    color: '#aaaaaa',
+                    damage: 5,
+                    type: 'gray'
+                });
+            }
+        }
+
+        function createPowerup() {
+            const types = ['speed', 'invincible'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            state.powerups.push({
+                x: rand(60, world.w - 60),
+                y: rand(120, world.h - 100),
+                r: 14,
+                type: type,
+                life: 8,
+                bob: rand(0, Math.PI * 2)
+            });
+        }
+
+        // Orbe de vida — aparece solo si el jugador tiene menos de 3 vidas
+        function createLifeOrb() {
+            state.powerups.push({
+                x: rand(60, world.w - 60),
+                y: rand(120, world.h - 100),
+                r: 14,
+                type: 'heart',
+                life: 10,
+                bob: rand(0, Math.PI * 2)
+            });
+        }
+
+        function createRedAttack(targetX, targetY) {
+            state.warnings.push({ x: targetX, y: targetY, life: 1.0, maxLife: 1.0, color: '#ff4444' });
+            setTimeout(() => {
+                if (state.boss) {
+                    state.projectiles.push({
+                        x: state.boss.x,
+                        y: state.boss.y + 20,
+                        vx: (targetX - state.boss.x) * 2,
+                        vy: (targetY - state.boss.y) * 2,
+                        r: 11,
+                        color: '#ff3333',
+                        type: 'red'
+                    });
+                }
+            }, 950);
+        }
+
+        // === Input y Update ===
+        function handleInput(dt) {
+            const up = keys.has('ArrowUp') || keys.has('w') || keys.has('W');
+            const down = keys.has('ArrowDown') || keys.has('s') || keys.has('S');
+            const left = keys.has('ArrowLeft') || keys.has('a') || keys.has('A');
+            const right = keys.has('ArrowRight') || keys.has('d') || keys.has('D');
+
+            let dx = 0, dy = 0;
+            if (up) dy -= 1;
+            if (down) dy += 1;
+            if (left) dx -= 1;
+            if (right) dx += 1;
+
+            const len = Math.hypot(dx, dy) || 1;
+            dx /= len; dy /= len;
+
+            const currentSpeed = player.speed * (player.speedBoost > 0 ? 1.6 : 1);
+            player.vx = dx * currentSpeed;
+            player.vy = dy * currentSpeed;
+
+            player.x = clamp(player.x + player.vx * dt, player.r, world.w - player.r);
+            player.y = clamp(player.y + player.vy * dt, player.r, world.h - player.r);
+        }
+
+        function update(dt) {
+            if (!state.running) return;
+
+            player.pulse += dt * 5;
+            state.gameTime += dt;
+            player.invincible = Math.max(0, player.invincible - dt);
+            player.speedBoost = Math.max(0, player.speedBoost - dt);
+
+            handleInput(dt);
+
+            state.spawnTimer += dt;
+            state.dropTimer += dt;
+
+            const enemyInterval = Math.max(0.38, 1.05 - state.level * 0.08);
+            const dropInterval = Math.max(0.55, 1.4 - state.level * 0.04);
+
+            // FIX: microbios solo aparecen cuando no hay boss
+            // FIX: warnings aparecen en los lados/bordes del escenario
+            if (!state.boss && state.spawnTimer >= enemyInterval) {
+                state.spawnTimer = 0;
+                const spawnSide = Math.floor(rand(0, 4));
+                let wx, wy;
+                // Calcular posición del warning justo en el borde visible
+                if (spawnSide === 0) {
+                    // lado izquierdo
+                    wx = 50;
+                    wy = rand(60, world.h - 60);
+                } else if (spawnSide === 1) {
+                    // lado derecho
+                    wx = world.w - 50;
+                    wy = rand(60, world.h - 60);
+                } else if (spawnSide === 2) {
+                    // lado superior
+                    wx = rand(60, world.w - 60);
+                    wy = 70;
+                } else {
+                    // lado inferior
+                    wx = rand(60, world.w - 60);
+                    wy = world.h - 70;
+                }
+                createWarning(wx, wy, 1.1);
+                // Capturar spawnSide, wx, wy en closure para que el enemigo llegue desde donde indica el warning
+                const capSide = spawnSide, capX = wx, capY = wy;
+                setTimeout(() => {
+                    if (state.running && !state.boss) createEnemy(capSide, capX, capY);
+                }, 950);
+            }
+
+            // Gotas solo aparecen cuando no hay boss
+            if (!state.boss && state.dropTimer >= dropInterval && state.drops.length < 4) {
+                state.dropTimer = 0;
+                createDrop();
+            }
+
+            // Boss cada 100 puntos — usando umbral explícito, nunca dispara dos veces
+            if (!state.boss && state.score >= state.nextBossAt) {
+                state.nextBossAt += 100;
+                spawnBoss();
+            }
+
+            // Powerups: probabilidad de spawn
+            if (Math.random() < 0.0075) createPowerup();
+
+            // Orbe de vida: solo aparece si el jugador tiene 1 o 2 vidas
+            if (state.lives < 3 && Math.random() < 0.003) createLifeOrb();
+
+            // Warnings
+            for (let i = state.warnings.length - 1; i >= 0; i--) {
+                state.warnings[i].life -= dt;
+                if (state.warnings[i].life <= 0) state.warnings.splice(i, 1);
+            }
+
+            // Boss lógica: animación wobble + ataque rojo más rápido + orbes continuos
+            if (state.boss) {
+                state.boss.wobble += dt * 4;
+
+                // Ataque rojo más frecuente: cada 0.9–1.4s
+                state.boss.attackTimer += dt;
+                if (state.boss.attackTimer > 0.9) {
+                    createRedAttack(player.x, player.y);
+                    state.boss.attackTimer = rand(0, 0.5);
+                }
+
+                // Nuevos orbes grises cada 2.5s con cap de 12 máximo en pantalla
+                state.boss.orbTimer += dt;
+                if (state.boss.orbTimer > 2.5) {
+                    const grayCount = state.projectiles.filter(p => p.type === 'gray').length;
+                    if (grayCount < 12) spawnGrayOrbs(Math.min(3, 12 - grayCount));
+                    state.boss.orbTimer = 0;
+                }
+            }
+
+            // FIX: Powerups — colisión con el jugador para activarlos
+            // Amarillo = velocidad 4s, Morado = invencibilidad 5s
+            for (let i = state.powerups.length - 1; i >= 0; i--) {
+                const p = state.powerups[i];
+                p.life -= dt;
+                p.bob += dt * 3;
+                if (p.life <= 0) { state.powerups.splice(i, 1); continue; }
+                if (distance(player, p) < player.r + p.r) {
+                    if (p.type === 'speed') {
+                        player.speedBoost = 4;
+                        burst(p.x, p.y, 'rgba(255,235,59,0.95)', 14);
+                    } else if (p.type === 'invincible') {
+                        player.invincible = 5;
+                        burst(p.x, p.y, 'rgba(224,64,251,0.95)', 14);
+                    } else if (p.type === 'heart') {
+                        // Solo se puede agarrar si la vida es menor a 3
+                        if (state.lives < 3) {
+                            state.lives = Math.min(3, state.lives + 1);
+                            burst(p.x, p.y, 'rgba(255,80,120,0.95)', 16);
+                        } else {
+                            continue; // No se recoge si ya tiene 3 vidas
+                        }
+                    }
+                    state.powerups.splice(i, 1);
+                }
+            }
+
+            // FIX: Proyectiles — orbes grises (recoger para dañar boss) y rojos (dañan al jugador)
+            for (let i = state.projectiles.length - 1; i >= 0; i--) {
+                const proj = state.projectiles[i];
+
+                if (proj.type === 'gray') {
+                    // El jugador recoge el orbe gris para hacer daño al boss
+                    if (state.boss && distance(player, proj) < player.r + proj.r) {
+                        state.boss.hp -= proj.damage;
+                        burst(proj.x, proj.y, 'rgba(180,180,180,0.9)', 10);
+                        state.projectiles.splice(i, 1);
+                        if (state.boss.hp <= 0) {
+                            burst(state.boss.x, state.boss.y, 'rgba(255,107,139,0.95)', 28);
+                            // Limpiar proyectiles del boss al morir
+                            state.projectiles = state.projectiles.filter(p => p.type !== 'gray' && p.type !== 'red');
+                            state.boss = null;
+                        }
+                        continue;
+                    }
+                    // Si no hay boss, limpiar los orbes huérfanos
+                    if (!state.boss) { state.projectiles.splice(i, 1); continue; }
+                }
+
+                if (proj.type === 'red') {
+                    // Los proyectiles rojos se mueven y dañan al jugador
+                    proj.x += proj.vx * dt;
+                    proj.y += proj.vy * dt;
+                    if (distance(player, proj) < player.r + proj.r && player.invincible <= 0) {
+                        burst(player.x, player.y, 'rgba(255,107,139,0.95)', 14);
+                        state.lives -= 1;
+                        player.invincible = 1.5;
+                        state.projectiles.splice(i, 1);
+                        if (state.lives <= 0) {
+                            updateHud();
+                            draw();
+                            finishGame();
+                            return;
+                        }
+                        continue;
+                    }
+                    // Eliminar si sale del escenario
+                    if (proj.x < -60 || proj.x > world.w + 60 || proj.y < -60 || proj.y > world.h + 60) {
+                        state.projectiles.splice(i, 1);
+                    }
+                }
+            }
+
+            // === Lógica original de enemigos, drops y partículas ===
+            for (let i = state.enemies.length - 1; i >= 0; i--) {
+                const e = state.enemies[i];
+                e.ttl -= dt;
+                e.wobble += dt * 7;
+                if (e.ttl <= 0) {
+                    burst(e.x, e.y, 'rgba(255,107,139,0.55)', 10);
+                    state.enemies.splice(i, 1);
+                    continue;
+                }
+
+                const dx = player.x - e.x;
+                const dy = player.y - e.y;
+                const dist = Math.hypot(dx, dy) || 1;
+                const nx = dx / dist, ny = dy / dist;
+
+                const wobbleX = Math.cos(e.wobble) * 0.22 * e.slant;
+                const wobbleY = Math.sin(e.wobble) * 0.22 * -e.slant;
+
+                e.vx = (nx + wobbleX) * e.speed;
+                e.vy = (ny + wobbleY) * e.speed;
+                e.x += e.vx * dt;
+                e.y += e.vy * dt;
+
+                if (dist < player.r + e.r && player.invincible <= 0) {
+                    state.enemies.splice(i, 1);
+                    state.lives -= 1;
+                    burst(player.x, player.y, 'rgba(255,107,139,0.95)', 16);
+                    if (state.lives <= 0) {
+                        updateHud();
+                        draw();
+                        finishGame();
+                        return;
+                    }
+                }
+            }
+
+            for (let i = state.drops.length - 1; i >= 0; i--) {
+                const d = state.drops[i];
+                d.bob += dt * 4;
+                if (distance(player, d) < player.r + d.r) {
+                    state.drops.splice(i, 1);
+                    // Sumar puntos sin superar el máximo de 5000
+                    state.score = Math.min(5000, state.score + 10);
+                    burst(d.x, d.y, 'rgba(103,232,166,0.95)', 12);
+                    // Level up con umbral explícito — nunca se rompe
+                    if (state.score >= state.nextLevelAt) {
+                        state.level++;
+                        state.nextLevelAt += 50;
+                    }
+                    // Condición de victoria
+                    if (state.score >= 5000) {
+                        updateHud();
+                        draw();
+                        winGame();
+                        return;
+                    }
+                }
+            }
+
+            for (let i = state.particles.length - 1; i >= 0; i--) {
+                const p = state.particles[i];
+                p.x += p.vx * dt;
+                p.y += p.vy * dt;
+                p.vx *= 0.98;
+                p.vy *= 0.98;
+                p.life -= dt * p.decay;
+                if (p.life <= 0) state.particles.splice(i, 1);
+            }
+            // Cap de partículas para evitar sobrecarga — eliminar las más antiguas
+            if (state.particles.length > 200) state.particles.splice(0, state.particles.length - 200);
+
+            updateHud();
+        }
+
+        // === Render ===
+        function background() {
+            const g = ctx.createLinearGradient(0, 0, 0, world.h);
+            g.addColorStop(0, '#0f2548');
+            g.addColorStop(1, '#07111f');
+            ctx.fillStyle = g;
+            ctx.fillRect(0, 0, world.w, world.h);
+
+            const glow = ctx.createRadialGradient(world.w * 0.5, world.h * 0.4, 30, world.w * 0.5, world.h * 0.4, Math.max(world.w, world.h) * 0.8);
+            glow.addColorStop(0, 'rgba(120, 215, 255, 0.12)');
+            glow.addColorStop(1, 'rgba(120, 215, 255, 0)');
+            ctx.fillStyle = glow;
+            ctx.fillRect(0, 0, world.w, world.h);
+        }
+
+        function drawDrop(d) {
+            const y = d.y + Math.sin(d.bob) * 4;
+            ctx.save();
+            ctx.translate(d.x, y);
+            const grad = ctx.createRadialGradient(-3, -4, 2, 0, 0, d.r * 1.4);
+            grad.addColorStop(0, 'rgba(220,255,232,1)');
+            grad.addColorStop(0.45, 'rgba(103,232,166,0.95)');
+            grad.addColorStop(1, 'rgba(31,160,92,0.7)');
+            ctx.fillStyle = grad;
+            ctx.beginPath();
+            ctx.arc(0, 0, d.r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawEnemy(e) {
+            const sway = Math.sin(e.wobble) * 3;
+            const squish = 1 + Math.sin(e.wobble * 1.2) * 0.08;
+            ctx.save();
+            ctx.translate(e.x + sway, e.y - sway * 0.2);
+            ctx.rotate(Math.sin(e.wobble * 0.6) * 0.07);
+            ctx.scale(1.05, squish);
+
+            ctx.fillStyle = 'rgba(0,0,0,0.16)';
+            ctx.beginPath();
+            ctx.ellipse(4, 10, e.r * 0.95, e.r * 0.72, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            const body = ctx.createRadialGradient(-6, -8, 2, 0, 0, e.r * 1.6);
+            body.addColorStop(0, 'rgba(255, 244, 247, 1)');
+            body.addColorStop(0.25, 'rgba(255, 207, 220, 0.98)');
+            body.addColorStop(0.48, 'rgba(255, 107, 139, 0.98)');
+            body.addColorStop(1, 'rgba(150, 28, 60, 0.92)');
+            ctx.fillStyle = body;
+            ctx.beginPath();
+            ctx.moveTo(0, -e.r * 1.22);
+            ctx.bezierCurveTo(e.r * 1.0, -e.r * 1.15, e.r * 1.35, -e.r * 0.05, e.r * 0.82, e.r * 0.78);
+            ctx.bezierCurveTo(e.r * 0.58, e.r * 1.35, 0, e.r * 1.18, -e.r * 0.72, e.r * 0.84);
+            ctx.bezierCurveTo(-e.r * 1.3, e.r * 0.08, -e.r * 1.05, -e.r * 1.08, 0, -e.r * 1.22);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        // FIX: Boss dibujado con el mismo diseño que los microbios pero más grande y oscuro
+        function drawBoss(boss) {
+            const wobble = boss.wobble;
+            const sway = Math.sin(wobble) * 4;
+            const squish = 1 + Math.sin(wobble * 1.2) * 0.09;
+            const r = boss.r;
+            ctx.save();
+            ctx.translate(boss.x + sway, boss.y - sway * 0.2);
+            ctx.rotate(Math.sin(wobble * 0.6) * 0.07);
+            ctx.scale(1.05, squish);
+
+            // Sombra
+            ctx.fillStyle = 'rgba(0,0,0,0.22)';
+            ctx.beginPath();
+            ctx.ellipse(5, 14, r * 0.95, r * 0.72, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Cuerpo con colores más oscuros/intensos que los microbios normales
+            const body = ctx.createRadialGradient(-8, -10, 4, 0, 0, r * 1.6);
+            body.addColorStop(0, 'rgba(255, 220, 230, 1)');
+            body.addColorStop(0.22, 'rgba(255, 120, 160, 0.98)');
+            body.addColorStop(0.48, 'rgba(190, 20, 60, 0.98)');
+            body.addColorStop(1, 'rgba(80, 0, 22, 0.94)');
+            ctx.fillStyle = body;
+            ctx.beginPath();
+            ctx.moveTo(0, -r * 1.22);
+            ctx.bezierCurveTo(r * 1.0, -r * 1.15, r * 1.35, -r * 0.05, r * 0.82, r * 0.78);
+            ctx.bezierCurveTo(r * 0.58, r * 1.35, 0, r * 1.18, -r * 0.72, r * 0.84);
+            ctx.bezierCurveTo(-r * 1.3, r * 0.08, -r * 1.05, -r * 1.08, 0, -r * 1.22);
+            ctx.fill();
+
+            // Borde brillante para distinguirlo de microbios normales
+            ctx.strokeStyle = 'rgba(255,80,120,0.55)';
+            ctx.lineWidth = 2.5;
+            ctx.beginPath();
+            ctx.moveTo(0, -r * 1.22);
+            ctx.bezierCurveTo(r * 1.0, -r * 1.15, r * 1.35, -r * 0.05, r * 0.82, r * 0.78);
+            ctx.bezierCurveTo(r * 0.58, r * 1.35, 0, r * 1.18, -r * 0.72, r * 0.84);
+            ctx.bezierCurveTo(-r * 1.3, r * 0.08, -r * 1.05, -r * 1.08, 0, -r * 1.22);
+            ctx.stroke();
+
+            ctx.restore();
+
+            // Barra de vida del boss (fuera del ctx.save para coordenadas absolutas)
+            const bw = 160;
+            const bx = boss.x - bw / 2;
+            const by = boss.y - r * squish - 26;
+            ctx.fillStyle = 'rgba(0,0,0,0.55)';
+            rrect(ctx, bx - 2, by - 2, bw + 4, 14, 5);
+            ctx.fill();
+            ctx.fillStyle = '#331020';
+            ctx.fillRect(bx, by, bw, 10);
+            const hpRatio = Math.max(0, boss.hp / boss.maxHp);
+            const hpGrad = ctx.createLinearGradient(bx, 0, bx + bw * hpRatio, 0);
+            hpGrad.addColorStop(0, '#ff6b8b');
+            hpGrad.addColorStop(1, '#ff0044');
+            ctx.fillStyle = hpGrad;
+            ctx.fillRect(bx, by, bw * hpRatio, 10);
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 11px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('BOSS', boss.x, by - 4);
+        }
+
+        function drawPlayer() {
+            const bob = Math.sin(player.pulse) * 2.5;
+            const col = playerColors[state.colorIdx];
+            ctx.save();
+            ctx.translate(player.x, player.y + bob);
+
+            // Anillo de invencibilidad o velocidad activa
+            if (player.invincible > 0) {
+                ctx.strokeStyle = 'rgba(224,64,251,0.7)';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(0, 0, player.r + 8 + Math.sin(player.pulse * 3) * 3, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+            if (player.speedBoost > 0) {
+                ctx.strokeStyle = 'rgba(255,235,59,0.7)';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.arc(0, 0, player.r + 6 + Math.sin(player.pulse * 4) * 2, 0, Math.PI * 2);
+                ctx.stroke();
+            }
+
+            const outerGlow = ctx.createRadialGradient(0, 0, player.r * 0.5, 0, 0, player.r * 2.2);
+            outerGlow.addColorStop(0, `rgba(${col.glow},0.18)`);
+            outerGlow.addColorStop(1, `rgba(${col.glow},0)`);
+            ctx.fillStyle = outerGlow;
+            ctx.beginPath();
+            ctx.arc(0, 0, player.r * 2.1, 0, Math.PI * 2);
+            ctx.fill();
+
+            const body = ctx.createRadialGradient(-6, -8, 4, 0, 0, player.r * 1.5);
+            body.addColorStop(0, col.hi);
+            body.addColorStop(0.35, col.mid);
+            body.addColorStop(1, col.deep);
+            ctx.fillStyle = body;
+            ctx.beginPath();
+            ctx.arc(0, 0, player.r, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawParticles() {
+            for (const p of state.particles) {
+                ctx.save();
+                ctx.globalAlpha = Math.max(0, p.life);
+                ctx.fillStyle = p.color;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, 2.5, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        function draw() {
+            background();
+
+            // FIX: Exclamaciones solo en los bordes donde aparecerá el microbio
+            for (const w of state.warnings) {
+                const alpha = Math.max(0, w.life / w.maxLife);
+                ctx.globalAlpha = alpha * 0.9;
+                ctx.font = 'bold 42px sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillStyle = w.color || '#ffff00';
+                ctx.fillText('!', w.x - 14, w.y + 14);
+                ctx.fillText('!', w.x + 14, w.y + 14);
+                ctx.globalAlpha = 1;
+            }
+
+            for (const d of state.drops) drawDrop(d);
+            for (const e of state.enemies) drawEnemy(e);
+
+            // FIX: Powerups con diseño mejorado — amarillo velocidad, morado invencibilidad
+            for (const p of state.powerups) {
+                const bobY = Math.sin(p.bob) * 3;
+                ctx.save();
+                ctx.globalAlpha = 0.92;
+                ctx.translate(p.x, p.y + bobY);
+
+                // Brillo exterior
+                const glowColor = p.type === 'speed' ? 'rgba(255,235,59,0.3)' : p.type === 'heart' ? 'rgba(255,77,109,0.3)' : 'rgba(224,64,251,0.3)';
+                const outerG = ctx.createRadialGradient(0, 0, p.r, 0, 0, p.r * 2.4);
+                outerG.addColorStop(0, glowColor);
+                outerG.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = outerG;
+                ctx.beginPath();
+                ctx.arc(0, 0, p.r * 2.4, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Cuerpo del powerup
+                const puGrad = ctx.createRadialGradient(-3, -3, 1, 0, 0, p.r);
+                if (p.type === 'speed') {
+                    puGrad.addColorStop(0, '#fff9c4');
+                    puGrad.addColorStop(0.5, '#ffeb3b');
+                    puGrad.addColorStop(1, '#f9a825');
+                } else if (p.type === 'heart') {
+                    puGrad.addColorStop(0, '#ffd6e0');
+                    puGrad.addColorStop(0.5, '#ff4d6d');
+                    puGrad.addColorStop(1, '#c9184a');
+                } else {
+                    puGrad.addColorStop(0, '#f8bbff');
+                    puGrad.addColorStop(0.5, '#e040fb');
+                    puGrad.addColorStop(1, '#7b1fa2');
+                }
+                ctx.fillStyle = puGrad;
+                ctx.beginPath();
+                ctx.arc(0, 0, p.r, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Icono encima
+                ctx.fillStyle = 'rgba(255,255,255,0.9)';
+                ctx.font = `bold ${p.r}px sans-serif`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(p.type === 'speed' ? '⚡' : p.type === 'heart' ? '♥' : '🛡', 0, 1);
+                ctx.textBaseline = 'alphabetic';
+                ctx.restore();
+                ctx.globalAlpha = 1;
+            }
+
+            // FIX: Boss dibujado con diseño de microbio
+            if (state.boss) {
+                drawBoss(state.boss);
+            }
+
+            // FIX: Proyectiles con diseño mejorado
+            for (const proj of state.projectiles) {
+                ctx.save();
+                if (proj.type === 'gray') {
+                    ctx.globalAlpha = 0.88;
+                    const gGrad = ctx.createRadialGradient(proj.x - 2, proj.y - 3, 1, proj.x, proj.y, proj.r);
+                    gGrad.addColorStop(0, '#eeeeee');
+                    gGrad.addColorStop(0.5, '#aaaaaa');
+                    gGrad.addColorStop(1, '#555555');
+                    ctx.fillStyle = gGrad;
+                    ctx.beginPath();
+                    ctx.arc(proj.x, proj.y, proj.r, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.strokeStyle = 'rgba(200,200,200,0.5)';
+                    ctx.lineWidth = 1.5;
+                    ctx.stroke();
+                } else if (proj.type === 'red') {
+                    ctx.globalAlpha = 0.9;
+                    const rGrad = ctx.createRadialGradient(proj.x - 2, proj.y - 2, 1, proj.x, proj.y, proj.r * 1.4);
+                    rGrad.addColorStop(0, '#ffaaaa');
+                    rGrad.addColorStop(0.4, '#ff3333');
+                    rGrad.addColorStop(1, '#990000');
+                    ctx.fillStyle = rGrad;
+                    ctx.beginPath();
+                    ctx.arc(proj.x, proj.y, proj.r, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+                ctx.globalAlpha = 1;
+            }
+
+            drawParticles();
+            drawPlayer();
+        }
+
+        // rrect: rounded rectangle compatible con todos los navegadores
+        // reemplaza ctx.roundRect() que no existe en navegadores antiguos y crashea el loop
+        function rrect(c, x, y, w, h, r) {
+            r = Math.min(r, w / 2, h / 2);
+            c.beginPath();
+            c.moveTo(x + r, y);
+            c.lineTo(x + w - r, y);
+            c.arcTo(x + w, y, x + w, y + r, r);
+            c.lineTo(x + w, y + h - r);
+            c.arcTo(x + w, y + h, x + w - r, y + h, r);
+            c.lineTo(x + r, y + h);
+            c.arcTo(x, y + h, x, y + h - r, r);
+            c.lineTo(x, y + r);
+            c.arcTo(x, y, x + r, y, r);
+            c.closePath();
+        }
+
+        function loop(timestamp) {
+            if (!state.running) return;
+            const dt = Math.min(0.033, (timestamp - state.lastTime) / 1000 || 0);
+            state.lastTime = timestamp;
+            try {
+                update(dt);
+                draw();
+            } catch (err) {
+                console.error('Game loop error:', err);
+            }
+            requestAnimationFrame(loop);
+        }
+
+        // === Eventos ===
+        document.querySelectorAll('.difficulty-chip').forEach(btn => {
+            btn.addEventListener('click', () => {
+                state.difficulty = btn.dataset.diff;
+                syncDifficultyUI();
+            });
+        });
+
+        startBtn.addEventListener('click', () => { resetGame(false); startGame(); });
+        restartBtn.addEventListener('click', () => { resetGame(false); startGame(); });
+
+        window.addEventListener('resize', resize);
+        window.addEventListener('keydown', e => {
+            keys.add(e.key);
+            if (e.key === 'Enter' && !state.running) { resetGame(false); startGame(); }
+        });
+        window.addEventListener('keyup', e => keys.delete(e.key));
+
+        // === Selector de personaje ===
+        const previewCanvas = document.getElementById('previewCanvas');
+        const previewCtx = previewCanvas.getContext('2d');
+
+        function drawPreview() {
+            const w = previewCanvas.width, h = previewCanvas.height;
+            const col = playerColors[state.colorIdx];
+            previewCtx.clearRect(0, 0, w, h);
+
+            // Fondo oscuro redondeado
+            previewCtx.fillStyle = 'rgba(7,17,31,0.92)';
+            rrect(previewCtx, 0, 0, w, h, 16);
+            previewCtx.fill();
+
+            // Brillo de fondo sutil del color elegido
+            const bgGlow = previewCtx.createRadialGradient(w/2, h/2, 8, w/2, h/2, w * 0.65);
+            bgGlow.addColorStop(0, `rgba(${col.glow},0.22)`);
+            bgGlow.addColorStop(1, `rgba(${col.glow},0)`);
+            previewCtx.fillStyle = bgGlow;
+            rrect(previewCtx, 0, 0, w, h, 16);
+            previewCtx.fill();
+
+            const cx = w / 2, cy = h / 2 - 8;
+            const r = 30;
+
+            // Glow exterior del personaje
+            const outerGlow = previewCtx.createRadialGradient(cx, cy, r * 0.5, cx, cy, r * 2.4);
+            outerGlow.addColorStop(0, `rgba(${col.glow},0.22)`);
+            outerGlow.addColorStop(1, `rgba(${col.glow},0)`);
+            previewCtx.fillStyle = outerGlow;
+            previewCtx.beginPath();
+            previewCtx.arc(cx, cy, r * 2.3, 0, Math.PI * 2);
+            previewCtx.fill();
+
+            // Cuerpo del personaje
+            const body = previewCtx.createRadialGradient(cx - 8, cy - 10, 4, cx, cy, r * 1.5);
+            body.addColorStop(0, col.hi);
+            body.addColorStop(0.35, col.mid);
+            body.addColorStop(1, col.deep);
+            previewCtx.fillStyle = body;
+            previewCtx.beginPath();
+            previewCtx.arc(cx, cy, r, 0, Math.PI * 2);
+            previewCtx.fill();
+
+            // Brillo especular
+            const shine = previewCtx.createRadialGradient(cx - 9, cy - 11, 2, cx - 6, cy - 7, r * 0.55);
+            shine.addColorStop(0, 'rgba(255,255,255,0.55)');
+            shine.addColorStop(1, 'rgba(255,255,255,0)');
+            previewCtx.fillStyle = shine;
+            previewCtx.beginPath();
+            previewCtx.arc(cx, cy, r, 0, Math.PI * 2);
+            previewCtx.fill();
+
+            // Nombre del color
+            previewCtx.fillStyle = 'rgba(255,255,255,0.82)';
+            previewCtx.font = `bold ${Math.round(w * 0.11)}px system-ui, sans-serif`;
+            previewCtx.textAlign = 'center';
+            previewCtx.textBaseline = 'alphabetic';
+            previewCtx.fillText(col.name, cx, h - 10);
+        }
+
+        function buildColorSwatches() {
+            const container = document.getElementById('colorSwatches');
+            container.innerHTML = '';
+            playerColors.forEach((c, i) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'color-chip' + (i === state.colorIdx ? ' active' : '');
+                btn.style.background = c.swatch;
+                btn.title = c.name;
+                btn.addEventListener('click', () => {
+                    state.colorIdx = i;
+                    buildColorSwatches();
+                    drawPreview();
+                    if (!state.running) draw();
+                });
+                container.appendChild(btn);
+            });
+        }
+
+        // Inicialización
+        resize();
+        syncDifficultyUI();
+        buildColorSwatches();
+        resetGame(true);
+        drawPreview();
+        draw();
+    </script>
+</body>
+
+</html>
