@@ -1,3 +1,4 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -41,7 +42,6 @@ header {
 nav {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 nav a {
@@ -63,13 +63,19 @@ h2 {
     font-weight: bold;
 }
 
-/* CARRUSEL CENTRADO */
+/* =========================
+   CARRUSEL CENTRADO
+========================= */
+
 #carouselEjercicios {
     max-width: 450px;
     margin: 0 auto;
 }
 
-/* IMAGEN CUADRADA + HOVER */
+/* =========================
+   IMAGEN CUADRADA + HOVER
+========================= */
+
 .img-carousel {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -86,7 +92,7 @@ h2 {
 
 .hover-img:hover {
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
 /* CONTENEDOR */
@@ -123,133 +129,11 @@ h2 {
     color: #8fca9d;
 }
 
-/* Footer */
+/* Footer separado*/
 footer {
     background-color: #588157;
     color: white;
     padding: 10px;
     text-align: center;
     margin-top: 60px;
-}
-
-/* BOTÓN + */
-.fab-wrapper {
-    position: fixed;
-    right: 24px;
-    bottom: 24px;
-    z-index: 1080;
-}
-
-.fab-button {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    border: none;
-    background-color: #4b946f;
-    color: white;
-    font-size: 34px;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-    cursor: pointer;
-}
-
-.fab-button:hover {
-    background-color: #3f7d5e;
-}
-
-.fab-button::after {
-    display: none;
-}
-
-.fab-menu {
-    background-color: #222;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 8px;
-    border-radius: 14px;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
-}
-
-.fab-menu .dropdown-item {
-    color: white;
-    border-radius: 10px;
-    padding: 10px 14px;
-}
-
-.fab-menu .dropdown-item:hover {
-    background-color: #4b946f;
-    color: #fff;
-}
-
-/* FORMULARIOS */
-.form-control,
-.form-select {
-    background-color: #2a2a2a;
-    color: white;
-    border: 1px solid #555;
-}
-
-.form-control:focus,
-.form-select:focus {
-    background-color: #2a2a2a;
-    color: white;
-    border-color: #8fca9d;
-    box-shadow: 0 0 0 0.2rem rgba(143, 202, 157, 0.2);
-}
-
-.form-label {
-    color: #d7d7d7;
-    margin-bottom: 8px;
-}
-
-.large-textarea {
-    min-height: 220px;
-    resize: vertical;
-}
-
-/* EDITOR */
-.edit-box {
-    background-color: #1d1d1d;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
-    padding: 16px;
-}
-
-.edit-box h6 {
-    color: #8fca9d;
-}
-
-#editExerciseList .edit-item {
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    align-items: center;
-    background-color: #2a2a2a;
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-#editExerciseList .edit-item span {
-    flex: 1;
-}
-
-#editExerciseList .edit-item .btn {
-    flex-shrink: 0;
-}
-
-.admin-message {
-    min-height: 28px;
-    text-align: center;
-    margin: 15px 0 0 0;
-    font-weight: 600;
-}
-
-.admin-message.success {
-    color: #8fca9d;
-}
-
-.admin-message.danger {
-    color: #ff8a8a;
 }
