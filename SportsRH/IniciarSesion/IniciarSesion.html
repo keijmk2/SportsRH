@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./IniciarSesion.css">
+
     <link rel="icon" href="/SportsRH/Imagenes/Logo del proyecto en circulo.png">
-    <title>INICIAR SESION</title>
+
+    <title>INICIAR SESIÓN</title>
 </head>
 
 <body>
@@ -28,16 +31,27 @@
 
                 <div class="collapse navbar-collapse justify-content-end" id="navbarContenido">
                     <ul class="navbar-nav">
+
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/SportsRH/Contactanos/Contactanos.html">CONTACTANOS</a>
+                            <a class="nav-link text-white"
+                                href="/SportsRH/Contactanos/Contactanos.html">
+                                CONTACTANOS
+                            </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/SportsRH/Acercadenosotros/Acercadenosotros.html">ACERCA DE
-                                NOSOTROS</a>
+                            <a class="nav-link text-white"
+                                href="/SportsRH/Acercadenosotros/Acercadenosotros.html">
+                                ACERCA DE NOSOTROS
+                            </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/Index.html">INICIO</a>
+                            <a class="nav-link text-white" href="/Index.html">
+                                INICIO
+                            </a>
                         </li>
+
                     </ul>
                 </div>
 
@@ -49,37 +63,82 @@
         <h1>Iniciar sesión</h1>
     </div>
 
-    <form>
+    <form id="IniciarSesion">
+
         <fieldset>
+
             <div class="formulario">
+
                 <label for="nom">Cargo:</label>
+
                 <select name="nom" id="nom">
-                    <option>Seleccione una opción</option>
-                    <option>Estudiante</option>
-                    <option>Profesor</option>
-                    <option>Administrador</option>
+
+                    <option value="">Seleccione una opción</option>
+
+                    <option value="estudiante">
+                        Estudiante
+                    </option>
+
+                    <option value="profesor">
+                        Profesor
+                    </option>
+
+                    <option value="administrador">
+                        Administrador
+                    </option>
+
                 </select>
 
-                <label for="correo">Correo IE:</label>
-                <input type="email" placeholder="Email..." name="correo" id="correo">
+                <label for="email">
+                    Correo electrónico:
+                </label>
 
-                <label for="con">Contraseña:</label>
-                <input type="password" placeholder="Contraseña..." name="con" id="con">
+                <input
+                    type="email"
+                    placeholder="Email..."
+                    name="email"
+                    id="email"
+                >
 
-                <button type="button" class="btn btn-outline-success"
-                    onclick="window.location.href='/SportsRH/Paginainiciada/Paginainiciada.html'">
-                    Iniciar Sesion
+                <label for="password">
+                    Contraseña:
+                </label>
+
+                <input
+                    type="password"
+                    placeholder="Contraseña..."
+                    name="password"
+                    id="password"
+                >
+
+                <button
+                    type="submit"
+                    class="btn btn-outline-success"
+                >
+                    Iniciar Sesión
                 </button>
-                <button type="button" class="btn btn-outline-warning">Olvidé mi contraseña</button>
+
+                <button
+                    type="button"
+                    class="btn btn-outline-warning"
+                >
+                    Olvidé mi contraseña
+                </button>
+
             </div>
+
         </fieldset>
 
         <br>
+
     </form>
 
     <footer>
         <h6>© SPORT RH 2026</h6>
+        <h6>Cra. 50B #97a-30, Santa Cruz, Medellín, Antioquia</h6>
     </footer>
+
+    <script src="../js/IniciarSesion.js"></script>
 
 </body>
 
