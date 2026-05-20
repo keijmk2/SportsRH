@@ -99,18 +99,25 @@ h2 {
     width: 260px;
     height: 310px;
     perspective: 1200px;
-    cursor: pointer;
+}
+
+/* ocultar checkbox */
+.implemento input {
+    display: none;
 }
 
 .tarjeta-implemento {
     width: 100%;
     height: 100%;
     position: relative;
+    display: block;
     transform-style: preserve-3d;
     transition: transform 0.7s ease;
+    cursor: pointer;
 }
 
-.tarjeta-implemento.girado {
+/* VOLTEO SIN JS */
+.implemento input:checked + .tarjeta-implemento {
     transform: rotateY(180deg);
 }
 
@@ -156,6 +163,7 @@ h2 {
     color: #f2f2f2;
 }
 
+/* PARTE TRASERA */
 .trasera {
     transform: rotateY(180deg);
     background: linear-gradient(180deg, #3a3a3a, #2b2b2b);
@@ -174,11 +182,15 @@ h2 {
 }
 
 .trasera p {
-    color: #ffffff;
+    color: white;
     line-height: 1.5;
 }
 
 /* BOTON + */
+#menuToggle {
+    display: none;
+}
+
 .boton-mas {
     position: fixed;
     right: 30px;
@@ -186,10 +198,12 @@ h2 {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: none;
     background-color: #588157;
     color: white;
     font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     z-index: 3000;
     transition: 0.3s;
@@ -211,6 +225,11 @@ h2 {
     z-index: 3000;
 }
 
+/* MENU FUNCIONAL SIN JS */
+#menuToggle:checked ~ .menu-mas {
+    display: flex;
+}
+
 .menu-mas button {
     background-color: #2b2b2b;
     color: white;
@@ -226,66 +245,6 @@ h2 {
     background-color: #588157;
 }
 
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    z-index: 4000;
-}
-
-/* FORMULARIO */
-.formulario {
-    background-color: #2b2b2b;
-    width: 90%;
-    max-width: 400px;
-    padding: 30px;
-    border-radius: 20px;
-}
-
-.formulario h3 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #4b946f;
-}
-
-.formulario input,
-.formulario select,
-.formulario textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 10px;
-    outline: none;
-    font-family: inherit;
-    font-size: 14px;
-}
-
-.formulario textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.formulario button {
-    width: 100%;
-    padding: 12px;
-    border: none;
-    border-radius: 10px;
-    background-color: #588157;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.formulario button:hover {
-    background-color: #4b946f;
-}
-
 /* FOOTER */
 footer {
     text-align: center;
@@ -296,6 +255,7 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+
     header {
         flex-direction: column;
         gap: 15px;
