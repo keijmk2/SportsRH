@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPORTRH_Perfil</title>
+    <link rel="stylesheet" href="./Tuperfil.css">
+    <link rel="icon" href="/SportsRH/Imagenes/Logo del proyecto en circulo.png">
+</head>
+
+<body>
+    <!-- CABEZA -->
+    <section class="cabeza">
+        <header>
+            <div class="logo-titulo">
+                <img src="/SportsRH/Imagenes/Logo del proyecto en grande.png" alt="logo">
+                <h1>SportsRH</h1>
+            </div>
+
+            <nav>
+                <a href="/SportsRH/Contactanos/ContactanosUSERS.html">CONTACTANOS</a>
+                <a href="/SportsRH/Acercadenosotros/AcercadenosotrosUSERS.html">ACERCA DE NOSOTROS</a>
+                <a href="/SportsRH/Paginainiciada/PaginainiciadaUSER.html">INICIO</a>
+            </nav>
+        </header>
+    </section>
+    <!-- PERFIL -->
+    <main>
+        <section class="perfil">
+            <!-- HEADER PERFIL -->
+            <div class="perfil-header">
+                <div>
+                    <h2 id="nombrePerfil">
+                        Estudiante
+                    </h2>
+                    <span class="rol">
+                        Estudiante
+                    </span>
+                </div>
+                <div class="botones-header">
+                    <button onclick="abrirEditar()">
+                        Editar perfil
+                    </button>
+                    <button class="cerrar-btn"
+                            onclick="cerrarSesion()">
+                        Cerrar sesión
+                    </button>
+                </div>
+            </div>
+            <!-- INFORMACIÓN -->
+            <div class="perfil-info">
+                <h3>Información Personal</h3>
+                <p>
+                    <strong>Correo:</strong>
+                    <span id="correoTexto">
+                        estudiante.SportsRH@gmail.com
+                    </span>
+                </p>
+                <p>
+                    <strong>Teléfono:</strong>
+                    <span id="telefonoTexto">
+                        3000000
+                    </span>
+                </p>
+                <p>
+                    <strong>ID Usuario:</strong>
+                    <span id="codigoTexto">
+                        12345
+                    </span>
+                </p>
+            </div>
+            <!-- SEGURIDAD -->
+            <div class="perfil-info">
+                <h3>Seguridad</h3>
+                <p>
+                    <strong>Usuario:</strong>
+                    <span id="usuarioTexto">
+                        estudiante
+                    </span>
+                </p>
+                <p>
+                    <strong>Contraseña:</strong>
+                    <span id="contraTexto">
+                        ********
+                    </span>
+                </p>
+                <div class="botones-seguridad">
+                    <button class="btn-sec"
+                            onclick="abrirContra()">
+                        Cambiar contraseña
+                    </button>
+                    <button class="btn-ver"
+                            onclick="verContraseña()">
+                        Ver contraseña
+                    </button>
+                </div>
+            </div>
+
+            <!-- PERMISOS -->
+            <div class="perfil-info">
+                <h3>Permisos (Estudiante)</h3>
+                <ul>
+                    <li class="ok">
+                        ✅ Ver inventario
+                    </li>
+                    <li class="ok">
+                        ❌ Registrar inventario
+                    </li>
+                    <li class="ok">
+                        ❌ Eliminar inventario
+                    </li>
+                </ul>
+            </div>
+            <!-- ACTIVIDAD -->
+            <div class="perfil-info">
+                <h3>Actividad reciente</h3>
+                <ul>
+                    <li>
+                        Agregó 5 balones - 10/04/2026
+                    </li>
+                    <li>
+                        Eliminó 10 conos - 08/04/2026
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <!-- MODAL EDITAR -->
+    <div class="modal"
+         id="modalEditar">
+        <div class="modal-contenido">
+            <h2>Editar Perfil</h2>
+            <input type="text"
+                   id="nuevoNombre"
+                   placeholder="Nuevo nombre">
+            <input type="email"
+                   id="nuevoCorreo"
+                   placeholder="Nuevo correo">
+            <input type="text"
+                   id="nuevoTelefono"
+                   placeholder="Nuevo teléfono">
+            <div class="modal-botones">
+                <button onclick="guardarPerfil()">
+                    Guardar
+                </button>
+                <button class="cancelar"
+                        onclick="cerrarEditar()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL CONTRASEÑA -->
+    <div class="modal"
+         id="modalContra">
+        <div class="modal-contenido">
+            <h2>Cambiar Contraseña</h2>
+            <input type="text"
+                   id="idUsuario"
+                   placeholder="IIngresa el código">
+            <input type="password"
+                   id="nuevaContra"
+                   placeholder="Nueva contraseña">
+            <div class="modal-botones">
+                <button onclick="guardarContra()">
+                    Guardar
+                </button>
+                <button class="cancelar"
+                        onclick="cerrarContra()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <h6>© SPORT RH 2026</h6>
+        <h6>
+            Cra. 50B #97a-30,
+            Santa Cruz, Medellín,
+            Antioquia
+        </h6>
+    </footer>
+</body>
+
+</html>

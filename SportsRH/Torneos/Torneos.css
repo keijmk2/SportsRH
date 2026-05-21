@@ -242,9 +242,7 @@ body{
 /* FOOTER */
 
 .pie{
-    background-color: #588157;
     color: white;
-    padding: 18px;
     text-align: center;
 }
 
@@ -257,7 +255,7 @@ body{
 /* EXTRA */
 
 .container{
-    max-width: 100% !important;
+    max-width: 100%;
 }
 
 #carouselMeses{
@@ -276,7 +274,6 @@ body{
         height: 110px;
         padding: 6px;
     }
-
 }
 
 @media(max-width: 768px){
@@ -301,5 +298,4 @@ body{
     .partido-chip{
         font-size: 8px;
     }
-
 }

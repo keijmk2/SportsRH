@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./IniciarSesion.css">
+    <link rel="stylesheet" href="./OlvidoContraseña.css">
     <link rel="icon" href="/SportsRH/Imagenes/Logo del proyecto en circulo.png">
-    <title>INICIAR SESION</title>
+    <title>OLVIDÓ SU CONTRASEÑA</title>
 </head>
 
 <body>
@@ -29,14 +29,17 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarContenido">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/SportsRH/Contactanos/Contactanos.html">CONTACTANOS</a>
+                            <a class="nav-link text-white"
+                                href="/SportsRH/Contactanos/Contactanos.html">CONTACTANOS</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/SportsRH/Acercadenosotros/Acercadenosotros.html">ACERCA DE
-                                NOSOTROS</a>
+                            <a class="nav-link text-white"
+                                href="/SportsRH/Acercadenosotros/Acercadenosotros.html">
+                                ACERCA DE NOSOTROS
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" href="/Index.html">INICIO</a>
+                            <a class="nav-link text-white" href="/SportsRH/Index.html">INICIO</a>
                         </li>
                     </ul>
                 </div>
@@ -46,28 +49,28 @@
     </header>
 
     <div class="titulo">
-        <h1>Iniciar sesión</h1>
+        <h1>Olvidó su contraseña</h1>
     </div>
 
-    <form  id="iniciarSesion">
+    <form>
         <fieldset>
             <div class="formulario">
-                <label for="nom">Cargo:</label>
-                <select name="nom" id="nom">
-                    <option>Seleccione una opción</option>
-                    <option>Estudiante</option>
-                    <option>Profesor</option>
-                    <option>Administrador</option>
-                </select>
 
                 <label for="correo">Correo IE:</label>
                 <input type="email" placeholder="Email..." name="correo" id="correo">
 
-                <label for="con">Contraseña:</label>
-                <input type="password" placeholder="Contraseña..." name="con" id="con">
+                <label for="nuevaCon">Nueva contraseña:</label>
+                <input type="password" placeholder="Nueva contraseña..." name="nuevaCon" id="nuevaCon">
 
-                <button type="submit" class="btn btn-outline-success">Iniciar Sesion</button>
-                <button type="button" class="btn btn-outline-warning">Olvidé mi contraseña</button>
+                <label for="confirmarCon">Confirma la contraseña:</label>
+                <input type="password" placeholder="Confirmar contraseña..." name="confirmarCon"
+                    id="confirmarCon">
+
+                <button type="button" class="btn btn-outline-success"
+                    onclick="window.location.href='/SportsRH/IniciarSesion/IniciarSesion.html'">
+                    Guardar cambios
+                </button>
+
             </div>
         </fieldset>
 
@@ -77,8 +80,6 @@
     <footer>
         <h6>© SPORT RH 2026</h6>
     </footer>
-
-    <script src="../JS/IniciarSesion.js"></script>
 
 </body>
 
