@@ -17,7 +17,6 @@
                 <img src="/SportsRH/Imagenes/Logo del proyecto en grande.png" alt="logo">
                 <h1>SportsRH</h1>
             </div>
-
             <nav>
                 <a href="/SportsRH/Contactanos/Dupli-Con.html">CONTACTANOS</a>
                 <a href="/SportsRH/Acercadenosotros/Dupli-AN.html">ACERCA DE NOSOTROS</a>
@@ -42,7 +41,8 @@
                     <button onclick="abrirEditar()">
                         Editar perfil
                     </button>
-                    <button class="cerrar-btn" onclick="cerrarSesion()">
+                    <button class="cerrar-btn"
+                            onclick="cerrarSesion()">
                         Cerrar sesión
                     </button>
                 </div>
@@ -85,10 +85,12 @@
                     </span>
                 </p>
                 <div class="botones-seguridad">
-                    <button class="btn-sec" onclick="abrirContra()">
+                    <button class="btn-sec"
+                            onclick="abrirContra()">
                         Cambiar contraseña
                     </button>
-                    <button class="btn-ver" onclick="verContraseña()">
+                    <button class="btn-ver"
+                            onclick="verContraseña()">
                         Ver contraseña
                     </button>
                 </div>
@@ -124,33 +126,47 @@
         </section>
     </main>
     <!-- MODAL EDITAR -->
-    <div class="modal" id="modalEditar">
+    <div class="modal"
+         id="modalEditar">
         <div class="modal-contenido">
             <h2>Editar Perfil</h2>
-            <input type="text" id="nuevoNombre" placeholder="Nuevo nombre">
-            <input type="email" id="nuevoCorreo" placeholder="Nuevo correo">
-            <input type="text" id="nuevoTelefono" placeholder="Nuevo teléfono">
+            <input type="text"
+                   id="nuevoNombre"
+                   placeholder="Nuevo nombre">
+            <input type="email"
+                   id="nuevoCorreo"
+                   placeholder="Nuevo correo">
+            <input type="text"
+                   id="nuevoTelefono"
+                   placeholder="Nuevo teléfono">
             <div class="modal-botones">
                 <button onclick="guardarPerfil()">
                     Guardar
                 </button>
-                <button class="cancelar" onclick="cerrarEditar()">
+                <button class="cancelar"
+                        onclick="cerrarEditar()">
                     Cancelar
                 </button>
             </div>
         </div>
     </div>
     <!-- MODAL CONTRASEÑA -->
-    <div class="modal" id="modalContra">
+    <div class="modal"
+         id="modalContra">
         <div class="modal-contenido">
             <h2>Cambiar Contraseña</h2>
-            <input type="text" id="idUsuario" placeholder="IIngresa el código">
-            <input type="password" id="nuevaContra" placeholder="Nueva contraseña">
+            <input type="text"
+                   id="idUsuario"
+                   placeholder="IIngresa el código">
+            <input type="password"
+                   id="nuevaContra"
+                   placeholder="Nueva contraseña">
             <div class="modal-botones">
                 <button onclick="guardarContra()">
                     Guardar
                 </button>
-                <button class="cancelar" onclick="cerrarContra()">
+                <button class="cancelar"
+                        onclick="cerrarContra()">
                     Cancelar
                 </button>
             </div>
