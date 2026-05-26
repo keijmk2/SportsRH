@@ -49,11 +49,11 @@
         <h1>Iniciar sesión</h1>
     </div>
 
-    <form>
+    <form id="InicioSesion">
         <fieldset>
             <div class="formulario">
                 <label for="nom">Cargo:</label>
-                <select name="nom" id="nom">
+                <select name="nom" id="cargo">
                     <option>Seleccione una opción</option>
                     <option>Estudiante</option>
                     <option>Profesor</option>
@@ -61,18 +61,16 @@
                 </select>
 
                 <label for="correo">Correo IE:</label>
-                <input type="email" placeholder="Email..." name="correo" id="correo">
+                <input type="email" placeholder="Email..." name="correo" id="email">
 
                 <label for="con">Contraseña:</label>
-                <input type="password" placeholder="Contraseña..." name="con" id="con">
+                <input type="password" placeholder="Contraseña..." name="con" id="password">
 
-                <button type="button" class="btn btn-outline-success"
-                    onclick="window.location.href='/SportsRH/Paginainiciada/Paginainiciada.html'">
+                <button type="submit" type="button" class="btn btn-outline-success">
                     Iniciar Sesion
                 </button>
 
-                <button type="button" class="btn btn-outline-warning"
-                    onclick="window.location.href='/SportsRH/IniciarSesion/OlvidoContraseña.html'">
+                <button type="button" class="btn btn-outline-warning">
                     Olvido su Contraseña
                 </button>
             </div>
@@ -84,7 +82,7 @@
     <footer>
         <h6>© SPORT RH 2026</h6>
     </footer>
-
+    <script src="/SportsRH/js/login.js"></script>
+    
 </body>
-
 </html>
