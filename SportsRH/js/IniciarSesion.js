@@ -139,9 +139,9 @@ function enviar(event) {
         return;
     }
 
-    // -------------------------
+    // --------------------------
     // ERROR
-    // -------------------------
+    // --------------------------
 
     alert(
         "Correo, contraseña o cargo incorrectos"
