@@ -1,167 +1,150 @@
-// FORMULARIO
-
 const formulario =
-    document.getElementById("IniciarSesion");
-
-// EVENTO SUBMIT
-
-formulario.addEventListener("submit", enviar);
-
-// FUNCION PRINCIPAL
+    document.getElementById(
+        "IniciarSesion"
+    );
+formulario.addEventListener(
+    "submit",
+    enviar
+);
 
 function enviar(event) {
 
-    // EVITAR RECARGA
-
     event.preventDefault();
 
-    // CAPTURAR DATOS
-
     let cargo =
-        document.getElementById("nom").value;
-
+        document.getElementById(
+            "nom"
+        ).value;
     let email =
-        document.getElementById("email").value;
-
+        document.getElementById(
+            "correo"
+        ).value;
     let password =
-        document.getElementById("password").value;
-
-    // VALIDACIONES
-
+        document.getElementById(
+            "con"
+        ).value;
+        
     if (cargo === "") {
-
-        alert("Seleccione un cargo");
-
+        alert(
+            "Seleccione un cargo"
+        );
         return;
     }
-
     if (email === "") {
-
-        alert("Ingrese el correo");
-
+        alert(
+            "Ingrese el correo"
+        );
         return;
     }
-
     if (password === "") {
-
-        alert("Ingrese la contraseña");
-
+        alert(
+            "Ingrese la contraseña"
+        );
         return;
     }
-
-    // -------------------------
     // ADMINISTRADOR
-    // -------------------------
-
     if (
-        cargo === "administrador" &&
-        email === "admin@sportsrh.com" &&
-        password === "123"
+        cargo === "administrador"
+        &&
+        email ===
+        "admin.SportsRH@gmail.com"
+        &&
+        password === "12345"
     ) {
-
-        // GUARDAR USUARIO
-
+        alert(
+            "Usuario encontrado"
+        );
+        alert(
+            "Bienvenido Administrador"
+        );
         localStorage.setItem(
             "usuario",
             "administrador"
         );
-
         localStorage.setItem(
             "correo",
             email
         );
-
-        // REDIRECCION
-
         window.location.href =
-            "/SportsRH/Admin/Admin.html";
-
+            "/SportsRH/Paginainiciada/Paginainiciada.html";
         return;
     }
-
-    // -------------------------
     // PROFESOR
-    // -------------------------
-
     if (
-        cargo === "profesor" &&
-        email === "profe@sportsrh.com" &&
-        password === "456"
+        cargo === "profesor"
+        &&
+        email ===
+        "profesor.SportsRH@gmail.com"
+        &&
+        password === "67890"
     ) {
-
-        // GUARDAR USUARIO
-
+        alert(
+            "Usuario encontrado"
+        );
+        alert(
+            "Bienvenido Profesor"
+        );
         localStorage.setItem(
             "usuario",
             "profesor"
         );
-
         localStorage.setItem(
             "correo",
             email
         );
-
-        // REDIRECCION
-
         window.location.href =
-            "/SportsRH/Profesor/Profesor.html";
-
+            "/SportsRH/Paginainiciada/PaginainiciadaPROFE.html";
         return;
     }
-
-    // -------------------------
     // ESTUDIANTE
-    // -------------------------
-
     if (
-        cargo === "estudiante" &&
-        email === "estudiante@sportsrh.com" &&
-        password === "789"
+        cargo === "estudiante"
+        &&
+        email ===
+        "estudiante.SportsRH@gmail.com"
+        &&
+        password === "1234567890"
     ) {
-
-        // GUARDAR USUARIO
-
+        alert(
+            "Usuario encontrado"
+        );
+        alert(
+            "Bienvenido Estudiante"
+        );
         localStorage.setItem(
             "usuario",
             "estudiante"
         );
-
         localStorage.setItem(
             "correo",
             email
         );
-
-        // REDIRECCION
-
         window.location.href =
-            "/SportsRH/Estudiante/Estudiante.html";
-
+            "/SportsRH/Paginainiciada/PaginainiciadaUSER.html";
         return;
     }
-
-    // --------------------------
-    // ERROR
-    // --------------------------
-
+    // ERRORES DE INICIO DE SESION
+    alert(
+        "Usuario no encontrado"
+    );
     alert(
         "Correo, contraseña o cargo incorrectos"
     );
 }
-
-// --------------------------------------
 // FUNCION CERRAR SESION
-// --------------------------------------
-
 function cerrarSesion() {
-
-    // BORRAR STORAGE
-
-    localStorage.removeItem("usuario");
-
-    localStorage.removeItem("correo");
-
-    // REDIRECCION
-
+    alert(
+        "Cerrando sesión"
+    );
+    localStorage.removeItem(
+        "usuario"
+    );
+    localStorage.removeItem(
+        "correo"
+    );
+    alert(
+        "Sesión cerrada correctamente"
+    );
     window.location.href =
-        "/Index.html";
+        "/SportsRH/Index.html";
 }
