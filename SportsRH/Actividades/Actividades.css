@@ -48,7 +48,7 @@ nav a {
     margin-left: 20px;
     text-decoration: none;
     color: white;
-    font-weight: 500;
+    font-weight: bold; /* NEGRITA */
 }
 
 nav a:hover {
@@ -129,11 +129,12 @@ h2 {
     color: #8fca9d;
 }
 
-/* Footer separado*/
+/* FOOTER */
 footer {
     background-color: #588157;
     color: white;
     padding: 10px;
     text-align: center;
     margin-top: 60px;
+    font-size: 12px; /* LETRA PEQUEÑA */
 }
