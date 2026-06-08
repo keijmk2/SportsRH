@@ -1,99 +1,133 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
-body {
-    background-color: #1a1a1a;
-    font-family: Arial, Helvetica, sans-serif;
+body{
+    background-color:#1a1a1a;
+    font-family:Arial, Helvetica, sans-serif;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
-
-.navbar {
-    background-color: #588157;
-    padding: 10px 20px;
+/* ------------------ */
+.navbar{
+    background-color:#588157;
+    padding:12px 24px;
 }
-
-.navbar-brand {
-    color: white !important;
-    font-weight: bold;
-    font-size: 20px;
+.navbar-brand{
+    color:white !important;
+    font-weight:bold;
+    font-size:22px;
+    text-decoration:none;
 }
-
-.navbar-brand img {
-    margin-right: 8px;
+.navbar-brand span{
+    color:white;
 }
-
-.nav-link {
-    color: white !important;
-    margin-left: 15px;
-    font-weight: 500;
+.navbar-brand img{
+    margin-right:8px;
 }
-
-.nav-link:hover {
-    text-decoration: underline;
+.btn-regresar{
+    background:white;
+    color:#588157;
+    border:none;
+    padding:7px 18px;
+    border-radius:4px;
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+    transition:.2s;
 }
-
-.titulo {
-    text-align: center;
-    color: #4b946f;
-    margin-top: 20px;
-    margin-bottom: 20px;
+.btn-regresar:hover{
+    background:#f0f0f0;
+    color:#3f6040;
 }
-
-/* CUADRO DEL FORMULARIO */
-fieldset {
-    width: 40%;
-    margin: 30px auto;
-    padding: 30px;
-    border: 2px solid #588157;
-    border-radius: 12px;
-    background-color: #2b2b2b;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+/* ------------------ */
+.contenido{
+    flex:1;
+    padding:40px 20px;
 }
-
-/* CONTENIDO DEL FORMULARIO */
-.formulario {
-    text-align: center;
-    color: #4b946f;
+.titulo{
+    text-align:center;
+    color:#588157;
+    margin-bottom:25px;
 }
-
-/* ETIQUETAS ARRIBA Y CENTRADAS */
-label {
-    display: block;
-    text-align: center;
-    margin-bottom: 8px;
-    font-weight: bold;
+.titulo h1{
+    font-size:36px;
+    font-weight:700;
 }
-
-/* CAJAS DEL MISMO TAMAÑO */
-input,
-select {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #588157;
-    border-radius: 8px;
-    outline: none;
-    background-color: #f2f2f2;
-    margin: 0 auto 15px auto;
-    display: block;
+/* ------------------ */
+fieldset{
+    width:40%;
+    margin:0 auto;
+    padding:30px;
+    border:2px solid #588157;
+    border-radius:12px;
+    background-color:#2b2b2b;
+    box-shadow:0 0 10px rgba(0,0,0,.4);
 }
-
-/* EFECTO AL SELECCIONAR */
-input:focus,
-select:focus {
-    border: 2px solid #4b946f;
+.formulario{
+    text-align:center;
+    color:#588157;
 }
-
-/* BOTONES */
-button {
-    margin: 10px 5px;
+label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:bold;
 }
+input{
+    width:80%;
+    padding:10px;
+    border:1px solid #588157;
+    border-radius:8px;
+    outline:none;
+    background-color:#f2f2f2;
+    margin:0 auto 15px auto;
+    display:block;
+}
+input:focus{
+    border:2px solid #4b946f;
+}
+button{
+    margin-top:10px;
+}
+/* ------------------ */
+.mensaje{
+    margin-top:15px;
+    font-weight:bold;
+    min-height:20px;
+}
+/* ------------------ */
+footer{
+    text-align:center;
+    padding:15px;
+    background-color:#588157;
+    color:white;
+    margin-top:auto;
+}
+footer h6{
+    margin:0;
+    font-size:12px;
+    font-weight:400;
+}
+/* ------------------ */
+@media(max-width:768px){
 
-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #588157;
-    color: white;
-    margin-top: 30px;
+    .navbar{
+        flex-direction:column;
+        gap:10px;
+    }
+    .titulo h1{
+        font-size:28px;
+    }
+    fieldset{
+        width:90%;
+        padding:20px;
+    }
+    input{
+        width:95%;
+    }
+    .btn-regresar{
+        font-size:13px;
+    }
 }
