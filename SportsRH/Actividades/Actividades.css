@@ -1,140 +1,225 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-
-/* BODY */
-body {
-    background-color: #1a1a1a;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
+body{
+    background-color:#1a1a1a;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
 }
-
-/* HEADER */
-header {
-    background-color: #588157;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
+/* --------------- */
+header{
+    background-color:#588157;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 24px;
+    flex-wrap:wrap;
 }
-
-.logo-titulo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* --------------- */
+.logo-titulo{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
-
-.logo-titulo img {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
+.logo-titulo img{
+    width:60px;
+    height:60px;
+    border-radius:10px;
 }
-
-.logo-titulo h1 {
-    color: white;
-    font-size: 22px;
+.logo-titulo h1{
+    color:white;
+    font-size:24px;
+    font-weight:700;
+    margin:0;
 }
-
-/* NAV */
-nav {
-    display: flex;
-    align-items: center;
+/* --------------- */
+nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
-
-nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: white;
-    font-weight: bold; /* NEGRITA */
+nav a{
+    text-decoration:none;
+    color:white;
+    font-weight:700;
+    font-size:14px;
+    transition:.3s;
 }
-
-nav a:hover {
-    text-decoration: underline;
+nav a:hover{
+    text-decoration:underline;
 }
-
-/* TITULO */
-h2 {
-    color: #4b946f;
-    margin: 30px 0 20px 0;
-    font-size: 32px;
-    font-weight: bold;
+.btn-regresar{
+    background:white;
+    color:#588157;
+    border:none;
+    padding:7px 18px;
+    border-radius:4px;
+    font-weight:600;
+    font-size:14px;
+    text-decoration:none;
+    transition:.2s;
 }
-
-/* =========================
-   CARRUSEL CENTRADO
-========================= */
-
-#carouselEjercicios {
-    max-width: 450px;
-    margin: 0 auto;
+.btn-regresar:hover{
+    background:#f0f0f0;
+    color:#3f6040;
 }
-
-/* =========================
-   IMAGEN CUADRADA + HOVER
-========================= */
-
-.img-carousel {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
+/* --------------- */
+main{
+    flex:1;
+    padding:30px 20px;
 }
-
-/* EFECTO AL PASAR MOUSE */
-.hover-img {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+/* --------------- */
+h2{
+    color:#588157;
+    margin-bottom:10px;
+    font-size:34px;
+    font-weight:700;
 }
-
-.hover-img:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+h5{
+    color:#dcdcdc;
+    font-size:15px;
+    font-weight:400;
+    margin-bottom:30px;
 }
-
-/* CONTENEDOR */
-.carousel-inner {
-    border-radius: 12px;
-    overflow: hidden;
+/* --------------- */
+#carouselEjercicios{
+    max-width:400px;
+    margin:0 auto;
 }
-
-/* TEXTO CARRUSEL */
-.carousel-caption {
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
+.img-carousel{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:12px;
+    display:block;
 }
-
-/* FLECHAS */
+/* --------------- */
+.hover-img{
+    cursor:pointer;
+    transition:transform .3s ease,
+               box-shadow .3s ease;
+}
+.hover-img:hover{
+    transform:translateY(-6px) scale(1.02);
+    box-shadow:0 8px 20px rgba(0,0,0,.5);
+}
+/* --------------- */
+.carousel-inner{
+    border-radius:12px;
+    overflow:hidden;
+}
+/* --------------- */
+.carousel-caption{
+    background:rgba(0,0,0,.55);
+    border-radius:8px;
+    padding:6px;
+}
+.carousel-caption h4{
+    font-size:16px;
+    margin-bottom:2px;
+    font-weight:700;
+}
+.carousel-caption p{
+    font-size:11px;
+    margin-bottom:0;
+}
+/* --------------- */
 .carousel-control-prev-icon,
-.carousel-control-next-icon {
-    filter: invert(1);
+.carousel-control-next-icon{
+    filter:invert(1);
 }
-
-/* INDICADORES */
-.carousel-indicators button {
-    background-color: white;
+/* --------------- */
+.carousel-indicators button{
+    background-color:white;
 }
-
-/* MODAL */
-.modal-content {
-    background-color: #222;
-    color: white;
-    border-radius: 12px;
+/* --------------- */
+.modal-content{
+    background:#222;
+    color:white;
+    border-radius:12px;
+    border:2px solid #588157;
 }
-
-.modal-content h4 {
-    color: #8fca9d;
+.modal-content h4{
+    color:#8fca9d;
+    margin-bottom:15px;
+    font-size:20px;
+    font-weight:700;
 }
+.modal-content ul{
+    padding-left:20px;
+}
+.modal-content li{
+    margin-bottom:10px;
+    line-height:1.4;
+    font-size:13px;
+}
+.modal-content p{
+    font-size:13px;
+}
+.modal-dialog{
+    max-width:700px;
+}
+/* --------------- */
+footer{
+    background-color:#588157;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:auto;
+}
+footer p{
+    margin:2px 0;
+    font-size:11px;
+    font-weight:400;
+}
+/* --------------- */
+@media(max-width:768px){
 
-/* FOOTER */
-footer {
-    background-color: #588157;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    margin-top: 60px;
-    font-size: 12px; /* LETRA PEQUEÑA */
+    header{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+    nav{
+        justify-content:center;
+        gap:15px;
+    }
+    .logo-titulo h1{
+        font-size:22px;
+    }
+    h2{
+        font-size:28px;
+    }
+    h5{
+        font-size:14px;
+        padding:0 10px;
+    }
+    #carouselEjercicios{
+        max-width:300px;
+    }
+    .carousel-caption h4{
+        font-size:14px;
+    }
+    .carousel-caption p{
+        font-size:10px;
+    }
+    .modal-dialog{
+        margin:15px;
+    }
+    .modal-content h4{
+        font-size:18px;
+    }
+    .modal-content li,
+    .modal-content p{
+        font-size:12px;
+    }
+    footer p{
+        font-size:10px;
+    }
 }

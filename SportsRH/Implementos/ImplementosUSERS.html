@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Implementos</title>
     <link rel="icon" type="image/png" href="/SportsRH/Imagenes/Logo del proyecto en circulo.png">
-    <link rel="stylesheet" href="./Implementos.css">
+    <link rel="stylesheet" href="./implementos.css">
 </head>
 
 <body>
-    <!-- CABECERA -->
+
     <section class="cabeza">
         <header>
             <div class="logo-titulo">
@@ -19,25 +19,25 @@
             </div>
 
             <nav>
-                <a href="/SportsRH/Paginainiciada/PaginainiciadaUSER.html">VOLVER AL INICIO</a>
-                <a href="/SportsRH/Contactanos/ContactanosUSERS.html">CONTACTANOS</a>
-                <a href="/SportsRH/Acercadenosotros/AcercadenosotrosUSERS.html">ACERCA DE NOSOTROS</a>
-                <a href="/SportsRH/Tuperfil/TuperfilUSERS.html">PERFIL</a>
+                <a href="/SportsRH/Paginainiciada/PaginainiciadaUSER.html" class="btn-regresar">
+                    ← Regresar
+                </a>
             </nav>
 
         </header>
     </section>
-    <!-- TITULO -->
-    <h2>IMPLEMENTOS</h2>
-    <!-- MENU -->
+
+    <h2>Implementos</h2>
+
     <div class="menu-implementos">
         <a href="#Balones">Balones</a>
         <a href="#Aros">Aros</a>
         <a href="#Colchonetas">Colchonetas</a>
         <a href="#Bastones">Bastones</a>
     </div>
-    <!-- BALONES -->
+
     <div id="Balones" class="seccion-implementos">
+
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
@@ -48,6 +48,7 @@
                         <p>Estado: Bueno</p>
                     </div>
                 </div>
+
                 <div class="cara trasera">
                     <h3>Balón de Fútbol</h3>
                     <p>
@@ -57,16 +58,18 @@
                 </div>
             </div>
         </div>
+
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
-                    <img src="/SportsRH/Imagenes/Balon_Basquetbol.jpg" alt="Basquetbol">
+                    <img src="/SportsRH/Imagenes/basquetbol.jpg" alt="Basquetbol">
                     <div class="info">
                         <h3>Balón de Basquetbol</h3>
                         <p>Cantidad: 8</p>
                         <p>Estado: Bueno</p>
                     </div>
                 </div>
+
                 <div class="cara trasera">
                     <h3>Balón de Basquetbol</h3>
                     <p>
@@ -76,6 +79,7 @@
                 </div>
             </div>
         </div>
+
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
@@ -86,6 +90,7 @@
                         <p>Estado: Regular</p>
                     </div>
                 </div>
+
                 <div class="cara trasera">
                     <h3>Balón de Voleibol</h3>
                     <p>
@@ -95,19 +100,23 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <!-- AROS -->
+
+
     <div id="Aros" class="seccion-implementos">
+
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
-                    <img src="/SportsRH/Imagenes/Aro_N.jpg" alt="Aros">
+                    <img src="/SportsRH/Imagenes/Aro N.jpg" alt="Aros">
                     <div class="info">
                         <h3>Aros Negros</h3>
                         <p>Cantidad: 12</p>
                         <p>Estado: Bueno</p>
                     </div>
                 </div>
+
                 <div class="cara trasera">
                     <h3>Aros Negros</h3>
                     <p>
@@ -117,9 +126,12 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <!-- COLCHONETAS -->
+
+
     <div id="Colchonetas" class="seccion-implementos">
+
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
@@ -130,6 +142,7 @@
                         <p>Estado: Bueno</p>
                     </div>
                 </div>
+
                 <div class="cara trasera">
                     <h3>Colchonetas</h3>
                     <p>
@@ -139,9 +152,12 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <!-- BASTONES -->
+
+
     <div id="Bastones" class="seccion-implementos">
+
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
@@ -152,6 +168,7 @@
                         <p>Estado: Regular</p>
                     </div>
                 </div>
+
                 <div class="cara trasera">
                     <h3>Bastones</h3>
                     <p>
@@ -161,11 +178,21 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <!-- FOOTER -->
+    <div class="perfil-mensaje">
+        <a href="/SportsRH/Prestamos/PrestamosUSERS.html">
+            Pedir un prestamo
+        </a>
+    </div>
+
     <footer>
         <h6>© SPORT RH 2026</h6>
-        <h6>Cra. 50B #97a-30, Medellín, Antioquia</h6>
+        <h6>
+            Cra. 50B #97a-30,
+            Medellín,
+            Antioquia
+        </h6>
     </footer>
 </body>
 

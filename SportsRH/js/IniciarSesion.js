@@ -23,7 +23,7 @@ function enviar(event) {
         document.getElementById(
             "con"
         ).value;
-        
+
     if (cargo === "") {
         alert(
             "Seleccione un cargo"
@@ -123,7 +123,7 @@ function enviar(event) {
             "/SportsRH/Paginainiciada/PaginainiciadaUSER.html";
         return;
     }
-    // ERRORES DE INICIO DE SESION
+    // ERROR INICIO DE SESION
     alert(
         "Usuario no encontrado"
     );
@@ -131,7 +131,7 @@ function enviar(event) {
         "Correo, contraseña o cargo incorrectos"
     );
 }
-// FUNCION CERRAR SESION
+// CERRAR SESION
 function cerrarSesion() {
     alert(
         "Cerrando sesión"

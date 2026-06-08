@@ -4,15 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SportRH</title>
-
+    <title>Implementos</title>
     <link rel="icon" type="image/png" href="/SportsRH/Imagenes/Logo del proyecto en circulo.png">
     <link rel="stylesheet" href="./implementos.css">
 </head>
 
 <body>
-
-    <!-- CABECERA -->
     <section class="cabeza">
         <header>
 
@@ -20,21 +17,15 @@
                 <img src="/SportsRH/Imagenes/Logo del proyecto en grande.png" alt="logo">
                 <h1>SportsRH</h1>
             </div>
-
             <nav>
-                <a href="/SportsRH/Paginainiciada/Paginainiciada.html">VOLVER AL INICIO</a>
-                <a href="/SportsRH/Contactanos/Dupli-Con.html">CONTACTANOS</a>
-                <a href="/SportsRH/Acercadenosotros/Dupli-AN.html">ACERCA DE NOSOTROS</a>
-                <a href="/SportsRH/Tuperfil/Tuperfil-admin.html">PERFIL</a>
+                <a href="/SportsRH/Paginainiciada/Paginainiciada.html" class="btn-regresar">
+                    ← Regresar
+                </a>
             </nav>
 
         </header>
     </section>
-
-    <!-- TITULO -->
     <h2>IMPLEMENTOS</h2>
-
-    <!-- MENU -->
     <div class="menu-implementos">
         <a href="#Balones">Balones</a>
         <a href="#Aros">Aros</a>
@@ -42,9 +33,7 @@
         <a href="#Bastones">Bastones</a>
     </div>
 
-    <!-- BALONES -->
     <div id="Balones" class="seccion-implementos">
-
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
@@ -55,7 +44,6 @@
                         <p>Estado: Bueno</p>
                     </div>
                 </div>
-
                 <div class="cara trasera">
                     <h3>Balón de Fútbol</h3>
                     <p>
@@ -69,7 +57,7 @@
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
-                    <img src="/SportsRH/Imagenes/Balon_Basquetbol.jpg" alt="Basquetbol">
+                    <img src="/SportsRH/Imagenes/basquetbol.jpg" alt="Basquetbol">
                     <div class="info">
                         <h3>Balón de Basquetbol</h3>
                         <p>Cantidad: 8</p>
@@ -110,13 +98,13 @@
 
     </div>
 
-    <!-- AROS -->
+
     <div id="Aros" class="seccion-implementos">
 
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
-                    <img src="/SportsRH/Imagenes/Aro_N.jpg" alt="Aros">
+                    <img src="/SportsRH/Imagenes/Aro N.jpg" alt="Aros">
                     <div class="info">
                         <h3>Aros Negros</h3>
                         <p>Cantidad: 12</p>
@@ -136,7 +124,7 @@
 
     </div>
 
-    <!-- COLCHONETAS -->
+
     <div id="Colchonetas" class="seccion-implementos">
 
         <div class="implemento" onclick="voltearImplemento(this)">
@@ -162,7 +150,7 @@
 
     </div>
 
-    <!-- BASTONES -->
+
     <div id="Bastones" class="seccion-implementos">
 
         <div class="implemento" onclick="voltearImplemento(this)">
@@ -188,10 +176,14 @@
 
     </div>
 
-    <!-- BOTON + -->
-    <button class="boton-mas" onclick="abrirMenu()">+</button>
+    <div class="perfil-mensaje">
+        <a href="/SportsRH/Prestamos/Prestamos.html">
+            Pedir préstamo
+        </a>
+    </div>
 
-    <!-- MENU DEL + -->
+
+    <button class="boton-mas" onclick="abrirMenu()">+</button>
     <div class="menu-mas" id="menuMas">
         <button onclick="abrirFormularioImplemento()">Añadir implemento</button>
         <button onclick="abrirFormularioEditar()">Editar implemento</button>
@@ -199,54 +191,43 @@
         <button onclick="crearSeccionImplemento()">Añadir sección de implemento</button>
         <button onclick="borrarSeccionImplemento()">Borrar sección de implemento</button>
     </div>
-
-    <!-- MODAL AGREGAR -->
     <div class="modal" id="modalImplemento">
         <div class="formulario">
             <h3>Añadir implemento</h3>
-
             <input type="text" id="nombreImplemento" placeholder="Nombre">
             <input type="text" id="imagenImplemento" placeholder="Ruta imagen">
             <input type="number" id="cantidadImplemento" placeholder="Cantidad">
-
             <select id="estadoImplemento">
                 <option>Bueno</option>
                 <option>Regular</option>
                 <option>Malo</option>
             </select>
-
             <textarea id="explicacionImplemento" placeholder="Explicación" rows="4"></textarea>
-
             <select id="categoriaImplemento">
                 <option value="Balones">Balones</option>
                 <option value="Aros">Aros</option>
                 <option value="Colchonetas">Colchonetas</option>
                 <option value="Bastones">Bastones</option>
             </select>
-
             <button onclick="agregarImplemento()">Agregar</button>
         </div>
     </div>
 
-    <!-- MODAL EDITAR -->
     <div class="modal" id="modalEditar">
         <div class="formulario">
             <h3>Editar implemento</h3>
-
             <input type="text" id="nombreEditar" placeholder="Nombre del implemento">
             <input type="number" id="cantidadEditar" placeholder="Nueva cantidad">
-
             <select id="estadoEditar">
                 <option>Bueno</option>
                 <option>Regular</option>
                 <option>Malo</option>
             </select>
-
             <button onclick="editarImplemento()">Guardar cambios</button>
         </div>
     </div>
 
-    <!-- FOOTER -->
+
     <footer>
         <h6>© SPORT RH 2026</h6>
         <h6>

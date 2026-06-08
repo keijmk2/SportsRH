@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <!-- CABECERA -->
+
     <section class="cabeza">
         <header>
             <div class="logo-titulo">
@@ -19,24 +19,23 @@
             </div>
 
             <nav>
-                <a href="/SportsRH/Paginainiciada/PaginainiciadaPROFE.html">VOLVER AL INICIO</a>
-                <a href="/SportsRH/Contactanos/ContactanosPROFE.html">CONTACTANOS</a>
-                <a href="/SportsRH/Acercadenosotros/AcercadenosotrosPROFE.html">ACERCA DE NOSOTROS</a>
-                <a href="/SportsRH/Tuperfil/TuperfilPROFES.html">PERFIL</a>
+                <a href="/SportsRH/Paginainiciada/PaginainiciadaPROFE.html" class="btn-regresar">
+                    ← Regresar
+                </a>
             </nav>
 
         </header>
     </section>
-    <!-- TITULO -->
-    <h2>IMPLEMENTOS</h2>
-    <!-- MENU -->
+
+    <h2>Implementos</h2>
+
     <div class="menu-implementos">
         <a href="#Balones">Balones</a>
         <a href="#Aros">Aros</a>
         <a href="#Colchonetas">Colchonetas</a>
         <a href="#Bastones">Bastones</a>
     </div>
-    <!-- BALONES -->
+
     <div id="Balones" class="seccion-implementos">
 
         <div class="implemento" onclick="voltearImplemento(this)">
@@ -63,7 +62,7 @@
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
-                    <img src="/SportsRH/Imagenes/Balon_Basquetbol.jpg" alt="Basquetbol">
+                    <img src="/SportsRH/Imagenes/basquetbol.jpg" alt="Basquetbol">
                     <div class="info">
                         <h3>Balón de Basquetbol</h3>
                         <p>Cantidad: 8</p>
@@ -104,13 +103,13 @@
 
     </div>
 
-    <!-- AROS -->
+
     <div id="Aros" class="seccion-implementos">
 
         <div class="implemento" onclick="voltearImplemento(this)">
             <div class="tarjeta-implemento">
                 <div class="cara frente">
-                    <img src="/SportsRH/Imagenes/Aro_N.jpg" alt="Aros">
+                    <img src="/SportsRH/Imagenes/Aro N.jpg" alt="Aros">
                     <div class="info">
                         <h3>Aros Negros</h3>
                         <p>Cantidad: 12</p>
@@ -130,7 +129,7 @@
 
     </div>
 
-    <!-- COLCHONETAS -->
+
     <div id="Colchonetas" class="seccion-implementos">
 
         <div class="implemento" onclick="voltearImplemento(this)">
@@ -156,7 +155,7 @@
 
     </div>
 
-    <!-- BASTONES -->
+
     <div id="Bastones" class="seccion-implementos">
 
         <div class="implemento" onclick="voltearImplemento(this)">
@@ -181,11 +180,16 @@
         </div>
 
     </div>
+    <div class="perfil-mensaje">
+        <a href="/SportsRH/Prestamos/PrestamosPROFES.html">
+            Pedir un prestamo
+        </a>
+    </div>
 
-    <!-- BOTON + -->
+
     <button class="boton-mas" onclick="abrirMenu()">+</button>
 
-    <!-- MENU DEL + -->
+
     <div class="menu-mas" id="menuMas">
         <button onclick="abrirFormularioImplemento()">Añadir implemento</button>
         <button onclick="abrirFormularioEditar()">Editar implemento</button>
@@ -194,7 +198,7 @@
         <button onclick="borrarSeccionImplemento()">Borrar sección de implemento</button>
     </div>
 
-    <!-- MODAL AGREGAR -->
+
     <div class="modal" id="modalImplemento">
         <div class="formulario">
             <h3>Añadir implemento</h3>
@@ -222,7 +226,7 @@
         </div>
     </div>
 
-    <!-- MODAL EDITAR -->
+
     <div class="modal" id="modalEditar">
         <div class="formulario">
             <h3>Editar implemento</h3>
@@ -240,7 +244,7 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
+
     <footer>
         <h6>© SPORT RH 2026</h6>
         <h6>

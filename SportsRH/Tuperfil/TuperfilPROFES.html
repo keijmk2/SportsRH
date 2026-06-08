@@ -4,20 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPORTRH_Perfil</title>
+    <title>Perfil-SPORTSRH</title>
     <link rel="stylesheet" href="./Tuperfil.css">
     <link rel="icon" href="/SportsRH/Imagenes/Logo del proyecto en circulo.png">
 </head>
 
 <body>
-    <!-- CABEZA -->
+
     <section class="cabeza">
         <header>
             <div class="logo-titulo">
                 <img src="/SportsRH/Imagenes/Logo del proyecto en grande.png" alt="logo">
                 <h1>SportsRH</h1>
             </div>
-
             <nav>
                 <a href="/SportsRH/Contactanos/ContactanosPROFE.html">CONTACTANOS</a>
                 <a href="/SportsRH/Acercadenosotros/AcercadenosotrosPROFE.html">ACERCA DE NOSOTROS</a>
@@ -25,10 +24,10 @@
             </nav>
         </header>
     </section>
-    <!-- PERFIL -->
+
     <main>
         <section class="perfil">
-            <!-- HEADER PERFIL -->
+
             <div class="perfil-header">
                 <div>
                     <h2 id="nombrePerfil">
@@ -38,66 +37,74 @@
                         Profesor
                     </span>
                 </div>
+
                 <div class="botones-header">
-                    <button onclick="abrirEditar()">
+                    <button>
                         Editar perfil
                     </button>
-                    <button class="cerrar-btn"
-                            onclick="window.location.href='/SportsRH/Index.html'">>
+                    <button class="cerrar-btn" onclick="window.location.href='/SportsRH/Index.html'">
                         Cerrar sesión
                     </button>
                 </div>
             </div>
-            <!-- INFORMACIÓN -->
+
+            <div class="perfil-info resumen">
+                <h3>Resumen de Cuenta</h3>
+                <div class="resumen-items">
+                    <div class="item-resumen">
+                        <span>Inventario</span>
+                        <strong>Activo</strong>
+                    </div>
+                    <div class="item-resumen">
+                        <span>Permisos</span>
+                        <strong>Profesor</strong>
+                    </div>
+                    <div class="item-resumen">
+                        <span>Estado</span>
+                        <strong class="activo">
+                            Activo
+                        </strong>
+                    </div>
+                </div>
+            </div>
+
             <div class="perfil-info">
                 <h3>Información Personal</h3>
                 <p>
                     <strong>Correo:</strong>
-                    <span id="correoTexto">
-                        profesor.SportsRH@gmail.com
-                    </span>
+                    profesor.SportsRH@gmail.com
                 </p>
                 <p>
                     <strong>Teléfono:</strong>
-                    <span id="telefonoTexto">
-                        3000000
-                    </span>
+                    3000000
                 </p>
                 <p>
                     <strong>ID Usuario:</strong>
-                    <span id="codigoTexto">
-                        12345
-                    </span>
+                    12345
                 </p>
             </div>
-            <!-- SEGURIDAD -->
+
             <div class="perfil-info">
                 <h3>Seguridad</h3>
                 <p>
                     <strong>Usuario:</strong>
-                    <span id="usuarioTexto">
-                        profesor
-                    </span>
+                    profesor
                 </p>
                 <p>
                     <strong>Contraseña:</strong>
-                    <span id="contraTexto">
-                        ********
-                    </span>
+                    ********
                 </p>
+
                 <div class="botones-seguridad">
-                    <button class="btn-sec"
-                            onclick="abrirContra()">
+                    <button class="btn-sec">
                         Cambiar contraseña
                     </button>
-                    <button class="btn-ver"
-                            onclick="verContraseña()">
+                    <button class="btn-ver">
                         Ver contraseña
                     </button>
                 </div>
             </div>
 
-            <!-- PERMISOS -->
             <div class="perfil-info">
                 <h3>Permisos (Profesor)</h3>
                 <ul>
@@ -110,9 +117,15 @@
                     <li class="ok">
                         ✅ Eliminar inventario
                     </li>
+                    <li class="ok">
+                        ✅ Gestionar implementos
+                    </li>
+                    <li class="ok">
+                        ✅ Gestionar torneos
+                    </li>
                 </ul>
             </div>
-            <!-- ACTIVIDAD -->
+
             <div class="perfil-info">
                 <h3>Actividad reciente</h3>
                 <ul>
@@ -124,64 +137,25 @@
                     </li>
                 </ul>
             </div>
+            <div class="perfil-mensaje">
+                <a href="/SportsRH/Mensaje/MensajePROFES.html">
+                    Mensaje al equipo de soporte
+                </a>
+            </div>
+
         </section>
+
     </main>
-    <!-- MODAL EDITAR -->
-    <div class="modal"
-         id="modalEditar">
-        <div class="modal-contenido">
-            <h2>Editar Perfil</h2>
-            <input type="text"
-                   id="nuevoNombre"
-                   placeholder="Nuevo nombre">
-            <input type="email"
-                   id="nuevoCorreo"
-                   placeholder="Nuevo correo">
-            <input type="text"
-                   id="nuevoTelefono"
-                   placeholder="Nuevo teléfono">
-            <div class="modal-botones">
-                <button onclick="guardarPerfil()">
-                    Guardar
-                </button>
-                <button class="cancelar"
-                        onclick="cerrarEditar()">
-                    Cancelar
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- MODAL CONTRASEÑA -->
-    <div class="modal"
-         id="modalContra">
-        <div class="modal-contenido">
-            <h2>Cambiar Contraseña</h2>
-            <input type="text"
-                   id="idUsuario"
-                   placeholder="IIngresa el código">
-            <input type="password"
-                   id="nuevaContra"
-                   placeholder="Nueva contraseña">
-            <div class="modal-botones">
-                <button onclick="guardarContra()">
-                    Guardar
-                </button>
-                <button class="cancelar"
-                        onclick="cerrarContra()">
-                    Cancelar
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- FOOTER -->
+
     <footer>
-        <h6>© SPORT RH 2026</h6>
         <h6>
-            Cra. 50B #97a-30,
-            Santa Cruz, Medellín,
-            Antioquia
+            © SPORT RH 2026
+        </h6>
+        <h6>
+            Cra. 50B #97a-30, Santa Cruz, Medellín, Antioquia
         </h6>
     </footer>
+
 </body>
 
 </html>
