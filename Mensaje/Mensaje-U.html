@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/Imagenes/Logo del proyecto en grande.png">
+    <link rel="stylesheet" href="Mensaje.css">
+    <title>Mensaje</title>
+</head>
+
+<body>
+
+    <header class="cabeza">
+        <div class="logo-titulo">
+            <img src="/Imagenes/Logo del proyecto en grande.png" alt="logo">
+            <h1>SPORT-RH</h1>
+        </div>
+        <nav>
+            <a href="/Paginainiciada/Paginainiciada-U.html">INICIO</a>
+            <a href="/Perfil/Perfil-U.html">PERFIL</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contenedor-formulario">
+            <h2>Centro de Mensajes</h2>
+            <p class="descripcion">
+                Utiliza este formulario para enviar sugerencias, reportar problemas,
+                solicitar ayuda o compartir tu opinión sobre SPORT-RH.
+                Tu mensaje será enviado al correo general del sistema.
+            </p>
+
+            <form action="mailto:admin.SportsRH@gmail.com" method="post" enctype="text/plain">
+
+                <div class="grupo">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="Nombre" required placeholder="Ej: Juan Pérez">
+                </div>
+
+                <div class="grupo">
+                    <label for="idUsuario">ID de Usuario</label>
+                    <input type="text" id="idUsuario" name="ID Usuario" required placeholder="Ej: 123456">
+                </div>
+
+                <div class="grupo">
+                    <label for="cargo">Cargo</label>
+                    <select id="cargo" name="Cargo" required>
+                        <option value="">Seleccione</option>
+                        <option value="administrador">Administrador</option>
+                        <option value="docente">Docente</option>
+                        <option value="estudiante">Estudiante</option>
+                    </select>
+                </div>
+
+                <div class="grupo">
+                    <label for="tipoMensaje">Tipo de mensaje</label>
+                    <select id="tipoMensaje" name="Tipo de Mensaje" required>
+                        <option value="">Seleccione</option>
+                        <option value="sugerencia">Sugerencia</option>
+                        <option value="ayuda">Solicitud de ayuda</option>
+                        <option value="error">Reporte de error</option>
+                        <option value="felicitacion">Felicitación</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="grupo">
+                    <label>Calificación de satisfacción</label>
+                    <div class="satisfaccion">
+                        <label><input type="radio" name="Satisfaccion" value="1" required> 1</label>
+                        <label><input type="radio" name="Satisfaccion" value="2"> 2</label>
+                        <label><input type="radio" name="Satisfaccion" value="3"> 3</label>
+                        <label><input type="radio" name="Satisfaccion" value="4"> 4</label>
+                        <label><input type="radio" name="Satisfaccion" value="5"> 5</label>
+                    </div>
+                </div>
+
+                <div class="grupo">
+                    <label for="asunto">Asunto</label>
+                    <input type="text" id="asunto" name="Asunto" required placeholder="Breve descripción del mensaje">
+                </div>
+
+                <div class="grupo">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="Mensaje" rows="6" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-enviar">Enviar mensaje</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <h6>© SPORT RH 2026</h6>
+        <h6>Cra. 50B #97a-30, Santa Cruz, Medellín, Antioquia</h6>
+    </footer>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            if (!confirm('¿Estás seguro de que deseas enviar este mensaje?')) {
+                e.preventDefault();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
