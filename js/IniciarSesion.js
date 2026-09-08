@@ -66,7 +66,7 @@ function enviar(event) {
             email
         );
         window.location.href =
-            "/SportsRH/Paginainiciada/Paginainiciada.html";
+            "/Paginainiciada/Paginainiciada-A.html";
         return;
     }
     // PROFESOR
@@ -93,7 +93,7 @@ function enviar(event) {
             email
         );
         window.location.href =
-            "/SportsRH/Paginainiciada/PaginainiciadaPROFE.html";
+            "/paginainiciada/paginainiciada-P.html";
         return;
     }
     // ESTUDIANTE
@@ -120,7 +120,7 @@ function enviar(event) {
             email
         );
         window.location.href =
-            "/SportsRH/Paginainiciada/PaginainiciadaUSER.html";
+            "/Paginainiciada/Paginainiciada-U.html";
         return;
     }
     // ERROR INICIO DE SESION
@@ -146,5 +146,5 @@ function cerrarSesion() {
         "Sesión cerrada correctamente"
     );
     window.location.href =
-        "/SportsRH/Index.html";
+        "Index.html";
 }

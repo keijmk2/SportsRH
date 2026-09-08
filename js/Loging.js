@@ -44,7 +44,7 @@ formulario.addEventListener("submit", function (event) {
         sessionStorage.setItem("cargo", user.cargo);
         localStorage.setItem("cargo", cargo);
 
-        window.location.href = "/SportsRH/Paginainiciada/Paginainiciada.html"
+        window.location.href = "/Paginainiciada/Paginainiciada-A.html"
         return
     }
     formulario.reset();
