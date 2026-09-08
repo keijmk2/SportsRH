@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/Imagenes/Logo del proyecto en circulo.png">
+    <link rel="stylesheet" href="OlvidoContraseña.css">
+    <title>Olvidó-su-Contraseña</title>
+</head>
+
+<body>
+
+    <header class="cabeza">
+        <div class="logo-titulo">
+            <img src="/Imagenes/Logo del proyecto en grande.png" alt="logo">
+            <h1>SPORT-RH</h1>
+        </div>
+        <nav>
+            <a href="./IniciarSesion.html" class="btn-regresar">← Regresar</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="bienvenida">
+            <h2>OLVIDÓ SU CONTRASEÑA</h2>
+            <p>Ingresa tu correo y establece una nueva contraseña para recuperar el acceso a tu cuenta.</p>
+        </section>
+
+        <section>
+            <form id="formRecuperacion" class="formulario-container">
+                <fieldset>
+                    <div class="campo">
+                        <label for="correo">Correo IE:</label>
+                        <input type="email" placeholder="Email..." name="correo" id="correo">
+                    </div>
+                    <div class="campo">
+                        <label for="nuevaCon">Nueva contraseña:</label>
+                        <input type="password" placeholder="Nueva contraseña..." name="nuevaCon" id="nuevaCon">
+                    </div>
+                    <div class="campo">
+                        <label for="confirmarCon">Confirma la contraseña:</label>
+                        <input type="password" placeholder="Confirmar contraseña..." name="confirmarCon" id="confirmarCon">
+                    </div>
+
+                    <div class="botones">
+                        <button type="button" class="btn btn-guardar" id="guardarCambios">
+                            Guardar cambios
+                        </button>
+                    </div>
+                    <div id="mensaje" class="mensaje"></div>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <h6>© SPORT RH 2026</h6>
+        <h6>Cra. 50B #97a-30, Santa Cruz, Medellín, Antioquia</h6>
+    </footer>
+
+    <script src="../js/OlvidoContraseña.js"></script>
+</body>
+
+</html>

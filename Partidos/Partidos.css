@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* ------ */
+.cabeza {
+    background-color: #588157;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-titulo img {
+    width: 55px;
+    border-radius: 50%;
+}
+.logo-titulo h1 {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    transition: .3s;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+/* ------ */
+.btn-regresar {
+    background: white;
+    color: #588157;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 18px;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.btn-regresar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .3);
+    text-decoration: none;
+    color: #3f6040;
+}
+/* ------ */
+main {
+    flex: 1;
+    padding: 30px 20px;
+}
+/* ------ */
+.bienvenida {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.bienvenida h2 {
+    color: #588157;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.bienvenida p {
+    color: white;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 17px;
+}
+/* ------ */
+.leyenda {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 36px;
+}
+.leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #dcdcdc;
+}
+.leyenda-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background: #588157;
+}
+/* ------ */
+#carouselMeses {
+    width: 100%;
+    max-width: 100%;
+}
+.carousel-inner {
+    overflow: visible;
+}
+.carousel-item {
+    padding: 0 80px;
+}
+.carousel-control-prev,
+.carousel-control-next {
+    width: 6%;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #588157;
+    border-radius: 50%;
+    padding: 22px;
+    background-size: 55%;
+}
+/* ------ */
+.mes-bloque {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #2b2b2b;
+    border: 2px solid #588157;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .4);
+}
+.mes-titulo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #588157;
+    border-left: 4px solid #588157;
+    padding-left: 15px;
+    margin-bottom: 18px;
+}
+/* ------ */
+.cal-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+.cal-table thead th {
+    background: #588157;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 12px 5px;
+}
+.cal-table td {
+    border: 1px solid #3a3a3a;
+    vertical-align: top;
+    padding: 10px;
+    width: 14.28%;
+    height: 100px;
+    background: #1e1e1e;
+}
+.day-num {
+    font-size: 14px;
+    color: #bbb;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.day-num.cur {
+    color: white;
+}
+.day-num.otro-mes {
+    color: #555;
+}
+/* ------ */
+.partido-chip {
+    background: #588157;
+    color: white;
+    border-radius: 4px;
+    padding: 4px 7px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.chip-deporte {
+    display: inline-block;
+    background: #3a6040;
+    color: #95d5b2;
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    letter-spacing: 0.5px;
+}
+/* ------ */
+footer {
+    background-color: #588157;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+footer h6 {
+    margin: 2px 0;
+    font-size: 12px;
+    font-weight: 400;
+}
+/* ------ */
+@media (max-width: 768px) {
+    .cabeza {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+    .logo-titulo img {
+        width: 50px;
+    }
+    .logo-titulo h1 {
+        font-size: 22px;
+    }
+    .btn-regresar {
+        font-size: 16px;
+        padding: 6px 16px;
+    }
+    .bienvenida h2 {
+        font-size: 28px;
+    }
+    .bienvenida p {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+    .carousel-item {
+        padding: 0 10px;
+    }
+    .mes-titulo {
+        font-size: 18px;
+    }
+    .mes-bloque {
+        overflow-x: auto;
+        padding: 15px;
+    }
+    .cal-table {
+        min-width: 700px;
+    }
+    .cal-table thead th {
+        font-size: 11px;
+    }
+    .cal-table td {
+        height: 80px;
+        padding: 6px;
+    }
+    .day-num {
+        font-size: 12px;
+    }
+    .partido-chip {
+        font-size: 8px;
+        padding: 3px 5px;
+    }
+    .chip-deporte {
+        font-size: 7px;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        width: 10%;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        padding: 16px;
+        background-size: 45%;
+    }
+    footer h6 {
+        font-size: 11px;
+    }
+}

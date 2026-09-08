@@ -1,0 +1,205 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #1a1a1a;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+/* ------ */
+.cabeza {
+    background-color: #588157;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-titulo img {
+    width: 55px;
+    border-radius: 50%;
+}
+.logo-titulo h1 {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+}
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    transition: .3s;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+/* ------ */
+main {
+    flex: 1;
+    padding: 30px 20px;
+}
+.bienvenida {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.bienvenida h2 {
+    color: #588157;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.bienvenida p {
+    color: white;
+    max-width: 750px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 17px;
+}
+/* ------ */
+.formulario-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+fieldset {
+    width: 100%;
+    max-width: 500px;
+    padding: 30px 25px;
+    border: 2px solid #588157;
+    border-radius: 12px;
+    background-color: #2b2b2b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .4);
+}
+.campo {
+    margin-bottom: 18px;
+}
+.campo label {
+    display: block;
+    text-align: center;
+    color: #588157;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #588157;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f2f2f2;
+    font-size: 15px;
+    transition: .3s;
+}
+.campo input:focus,
+.campo select:focus {
+    border: 2px solid #95d5b2;
+}
+/* ------ */
+.botones {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform .3s ease, box-shadow .3s ease;
+    flex: 1;
+    min-width: 140px;
+}
+.btn-ingresar {
+    background-color: #588157;
+    color: white;
+}
+.btn-ingresar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(88, 129, 87, 0.4);
+}
+.btn-olvido {
+    background-color: transparent;
+    color: #f4a261;
+    border: 2px solid #f4a261;
+}
+.btn-olvido:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(244, 162, 97, 0.3);
+    background-color: rgba(244, 162, 97, 0.1);
+}
+/* ------ */
+footer {
+    background-color: #588157;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+}
+footer h6 {
+    margin: 2px 0;
+    font-size: 12px;
+    font-weight: 400;
+}
+/* ------ */
+@media (max-width: 768px) {
+    .cabeza {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    nav {
+        justify-content: center;
+        gap: 15px;
+    }
+    .logo-titulo img {
+        width: 50px;
+    }
+    .logo-titulo h1 {
+        font-size: 22px;
+    }
+    .bienvenida h2 {
+        font-size: 28px;
+    }
+    .bienvenida p {
+        font-size: 15px;
+        padding: 0 10px;
+    }
+    fieldset {
+        padding: 20px 15px;
+        margin: 0 10px;
+    }
+    .botones {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn {
+        width: 100%;
+        min-width: unset;
+    }
+    footer h6 {
+        font-size: 11px;
+    }
+}
